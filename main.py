@@ -104,26 +104,43 @@ async def on_member_update(before, after):
 
 	guild = bot.get_guild(id=331892870367805440)
 
-	if str(after.activity) == "Counter-Strike Global Offensive":
-		rolecsgo = discord.utils.get(guild.roles, id=384112406663528448)
-		await after.add_roles(rolecsgo)
+	try:
+		if str(after.activity) == "Counter-Strike Global Offensive":
+			rolecsgo = discord.utils.get(guild.roles, id=384112406663528448)
+			await after.add_roles(rolecsgo)
 
-	if str(after.activity) == "Fortnite":
-		rolefortnite = discord.utils.get(guild.roles, id=422142121630498816)
-		await after.add_roles(rolefortnite)
+		if str(after.activity) == "Fortnite":
+			rolefortnite = discord.utils.get(guild.roles, id=422142121630498816)
+			await after.add_roles(rolefortnite)
 
-	if str(after.activity) == "Overwatch":
-		roleoverwatch = discord.utils.get(guild.roles, id=401359547127693313)
-		await after.add_roles(roleoverwatch)
+		if str(after.activity) == "Overwatch":
+			roleoverwatch = discord.utils.get(guild.roles, id=401359547127693313)
+			await after.add_roles(roleoverwatch)
 
-	if str(after.activity) == "League of Legends":
-		rolelol = discord.utils.get(guild.roles, id=384112673853276161)
-		await after.add_roles(rolelol)
+		if str(after.activity) == "League of Legends":
+			rolelol = discord.utils.get(guild.roles, id=384112673853276161)
+			await after.add_roles(rolelol)
 
-	if str(after.activity) == "PLAYERUNKOWN'S BATTLEGROUNDS":
-		rolepubg = discord.utils.get(guild.roles, id=384112588113313793)
-		await after.add_roles(rolepubg)
+		if str(after.activity) == "PLAYERUNKOWN'S BATTLEGROUNDS":
+			rolepubg = discord.utils.get(guild.roles, id=384112588113313793)
+			await after.add_roles(rolepubg)
+	except Forbidden:
+		pass
+
 	
+@bot.event
+async def on_member_join(member):
+# The Panther Lounge Automatic Role Assignment (MEMBER ROLE)
+
+	guild = bot.get_guild(id=331892870367805440)
+	role = discord.utils.get(guild.roles, id=372454832646258688)
+
+	try:
+		member.add_role(role)
+	except Forbidden:
+		pass
+
+
 
 @bot.event
 async def on_ready():
