@@ -104,23 +104,23 @@ async def on_member_update(before, after):
 
 	guild = bot.get_guild(id=331892870367805440)
 
-	if after.activity == "Counter-Strike Global Offensive":
+	if str(after.activity) == "Counter-Strike Global Offensive":
 		rolecsgo = discord.utils.get(guild.roles, id=384112406663528448)
 		await after.add_roles(rolecsgo)
 
-	if after.activity == "Fortnite":
+	if str(after.activity) == "Fortnite":
 		rolefortnite = discord.utils.get(guild.roles, id=422142121630498816)
 		await after.add_roles(rolefortnite)
 
-	if after.activity == "Overwatch":
+	if str(after.activity) == "Overwatch":
 		roleoverwatch = discord.utils.get(guild.roles, id=401359547127693313)
 		await after.add_roles(roleoverwatch)
 
-	if after.activity == "League of Legends":
+	if str(after.activity) == "League of Legends":
 		rolelol = discord.utils.get(guild.roles, id=384112673853276161)
 		await after.add_roles(rolelol)
 
-	if after.activity == "PLAYERUNKOWN'S BATTLEGROUNDS":
+	if str(after.activity) == "PLAYERUNKOWN'S BATTLEGROUNDS":
 		rolepubg = discord.utils.get(guild.roles, id=384112588113313793)
 		await after.add_roles(rolepubg)
 	
