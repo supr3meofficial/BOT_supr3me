@@ -122,4 +122,4 @@ async def on_ready():
 		print("\n[INFO] Changed bot's activity and status")
 
 
-bot.run(process.env.BOT_TOKEN, bot=True, reconnect=True)
+bot.run(os.environ.get('BOT_TOKEN')), bot=True, reconnect=True)
