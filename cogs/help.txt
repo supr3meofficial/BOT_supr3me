@@ -1,0 +1,28 @@
+
+**All Commands:**
+
+ `+ help`
+ `+ roll`
+ `+ choose`
+ `+ joined` 
+ `+ cool`
+ `+ publicmessage`
+ `+ cat`
+ `+ dog`
+ `+ ping`
+ `+ opencase`
+ `+ invite`
+ `+ discord`
+ `+ donate`
+ `+ patreon`
+ `+ clock`
+ `+ nibba`
+ `+ race`
+ `+ label`
+ `+ hltv`
+
+
+**Type +help <command> for the usage of a command**
+```css
+Coded by supr3me :3
+```

@@ -83,6 +83,10 @@ def display_help(help_to_display = None):
 
 		show_help = ':question:│ `Usage: +hltv`\n:grey_exclamation:│ `Commands: top5, top15, nextmatches`'
 
+	elif help_to_display == 'invite':
+
+		show_help = ':question:│ `Usage: +invite `\n:grey_exclamation:│ `Posts the bot invitation link`'
+
 	else:
 
 		show_help = ':warning: **Command not found.**'

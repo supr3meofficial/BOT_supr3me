@@ -11,6 +11,13 @@ class MiscCog:
 
 	@commands.command()
 	@commands.guild_only()
+	async def invite(self, ctx):
+
+		embed=discord.Embed(title="<:discord:434011189656158219> BOT Invite Link", url="https://discordapp.com/oauth2/authorize?&client_id=331818798015315970&scope=bot&permissions=8", description="Click the link above to invite the bot to your discord!", color=0x80ff00)
+		await ctx.send(embed=embed)
+
+	@commands.command()
+	@commands.guild_only()
 	async def discord(self, ctx):
 
 		embed=discord.Embed(title="<:discord:434011189656158219> Discord", url="https://discord.gg/FMn43Qq", description="Please join our discord using the link above", color=0x80ff00)
