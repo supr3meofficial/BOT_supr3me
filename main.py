@@ -124,7 +124,7 @@ async def on_member_update(before, after):
 		if str(after.activity) == "PLAYERUNKOWN'S BATTLEGROUNDS":
 			rolepubg = discord.utils.get(guild.roles, id=384112588113313793)
 			await after.add_roles(rolepubg)
-	except discord.Forbidden:
+	except discord.Forbidden, discord.NotFound:
 		pass
 
 	
@@ -137,7 +137,7 @@ async def on_member_join(member):
 
 	try:
 		member.add_roles(role)
-	except discord.Forbidden:
+	except discord.Forbidden, NotFound:
 		pass
 
 
