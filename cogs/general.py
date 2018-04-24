@@ -27,18 +27,8 @@ class GeneralCommandsCog:
 	@commands.command()
 	@commands.guild_only()
 	async def ping(self, ctx):
-
-		with open('txt/ping_counter.txt','r') as bot_pinged_counter_file:
-
-			bot_pinged_counter = int(bot_pinged_counter_file.read())
-
-		bot_pinged_counter += 1
-		pong_msg = ':ping_pong: **PONG!**\n*The bot has been pinged %s times so far*' % bot_pinged_counter
-
-		with open('txt/ping_counter.txt','w') as bot_pinged_counter_file:
-
-			bot_pinged_counter_file.write(str(bot_pinged_counter))
-
+		
+		pong_msg = ':ping_pong: **PONG!**'
 		await ctx.send(pong_msg)
 
 	@commands.command()
