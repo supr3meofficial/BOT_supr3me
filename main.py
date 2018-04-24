@@ -137,7 +137,7 @@ async def on_member_join(member):
 
 	try:
 		await member.add_roles(role)
-	except (discord.Forbidden, NotFound):
+	except (discord.Forbidden, discord.NotFound):
 		pass
 
 
