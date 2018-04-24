@@ -123,4 +123,4 @@ async def on_ready():
 		print("\n[INFO] Changed bot's activity and status")
 
 
-bot.run(os.environ['BOT_TOKEN']), bot=True, reconnect=True)
+bot.run(os.environ['BOT_TOKEN'], bot=True, reconnect=True)
