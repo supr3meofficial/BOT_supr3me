@@ -136,7 +136,7 @@ async def on_member_join(member):
 	role = discord.utils.get(guild.roles, id=372454832646258688)
 
 	try:
-		member.add_role(role)
+		member.add_roles(role)
 	except discord.Forbidden:
 		pass
 
