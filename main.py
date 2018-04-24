@@ -3,6 +3,7 @@ from discord.ext import commands
 import asyncio
 import datetime
 import sys, traceback
+import os
 
 def get_prefix(bot, message):
 	"""A callable Prefix for our bot. This could be edited to allow per server prefixes."""
