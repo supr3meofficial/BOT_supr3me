@@ -1,25 +1,30 @@
 
-**All Commands:**
+**Fun Stuff:**
+ `+ label`
+ `+ cool`
+ `+ cat`
+ `+ dog`
+ `+ nibba`
+ `+ race`
+ `+ opencase`
+ `+ ping`
+ `+ label`
 
- `+ help`
+ **General:**
+ `+ publicmessage`
+ `+ clock`
+ `+ hltv`
+
+ **Utilities:**
  `+ roll`
  `+ choose`
  `+ joined` 
- `+ cool`
- `+ publicmessage`
- `+ cat`
- `+ dog`
- `+ ping`
- `+ opencase`
+
+**Misc:**
  `+ invite`
  `+ discord`
  `+ donate`
  `+ patreon`
- `+ clock`
- `+ nibba`
- `+ race`
- `+ label`
- `+ hltv`
 
 
 **Type +help <command> for the usage of a command**
