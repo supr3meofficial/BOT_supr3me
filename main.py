@@ -6,22 +6,20 @@ import sys, traceback
 import os
 
 def get_prefix(bot, message):
-	"""A callable Prefix for our bot. This could be edited to allow per server prefixes."""
+	"""Bot prefixes"""
 
-	# Notice how you can use spaces in prefixes. Try to keep them simple though.
 	prefixes = ['++','+']
 
 	# Check to see if we are outside of a guild. e.g DM's etc.
 	if not message.guild:
-		# Only allow ? to be used in DMs
-		return 'help'
+	
+		pass
 
 	# If we are in a guild, we allow for the user to mention us or use any of the prefixes in our list.
 	return commands.when_mentioned_or(*prefixes)(bot, message)
 
 
-# Below cogs represents our folder our cogs are in. Following is the file name. So 'meme.py' in cogs, would be cogs.meme
-# Think of it like a dot path import
+# Below cogs represents our folder our cogs are in.
 initial_extensions = ['cogs.general',
 					  'cogs.owner',
 					  'cogs.help',
