@@ -6,13 +6,75 @@ class HLTVCog:
 
     def __init__(self,bot):
         self.bot = bot
-    
+
     @commands.group()
     @commands.guild_only()
     async def hltv(self, ctx):
         if ctx.invoked_subcommand is None:
             pass
-    
+            
+    @hltv.command(name='results', aliases=['matchresults','result','latestresults'])
+    async def result(self, ctx):
+
+        async with ctx.channel.typing():
+
+            msg = """
+**Date:** {}
+**Event:** {}
+**Score:** {} `{}-{}` {}
+
+**Date:** {}
+**Event:** {}
+**Score:** {} `{}-{}` {}
+
+**Date:** {}
+**Event:** {}
+**Score:** {} `{}-{}` {}
+
+**Date:** {}
+**Event:** {}
+**Score:** {} `{}-{}` {}
+
+**Date:** {}
+**Event:** {}
+**Score:** {} `{}-{}` {}
+""".format(
+    str(hltv.get_results()[0]['date'])[14:-1],
+    str(hltv.get_results()[0]['event'])[2:-1],
+    str(hltv.get_results()[0]['team1'])[2:-1],
+    str(hltv.get_results()[0]['team1score']),
+    str(hltv.get_results()[0]['team2score']),
+    str(hltv.get_results()[0]['team2'])[2:-1],
+    str(hltv.get_results()[1]['date'])[14:-1],
+    str(hltv.get_results()[1]['event'])[2:-1],
+    str(hltv.get_results()[1]['team1'])[2:-1],
+    str(hltv.get_results()[1]['team1score']),
+    str(hltv.get_results()[1]['team2score']),
+    str(hltv.get_results()[1]['team2'])[2:-1],
+    str(hltv.get_results()[2]['date'])[14:-1],
+    str(hltv.get_results()[2]['event'])[2:-1],
+    str(hltv.get_results()[2]['team1'])[2:-1],
+    str(hltv.get_results()[2]['team1score']),
+    str(hltv.get_results()[2]['team2score']),
+    str(hltv.get_results()[2]['team2'])[2:-1],
+    str(hltv.get_results()[3]['date'])[14:-1],
+    str(hltv.get_results()[3]['event'])[2:-1],
+    str(hltv.get_results()[3]['team1'])[2:-1],
+    str(hltv.get_results()[3]['team1score']),
+    str(hltv.get_results()[3]['team2score']),
+    str(hltv.get_results()[3]['team2'])[2:-1],
+    str(hltv.get_results()[4]['date'])[14:-1],
+    str(hltv.get_results()[4]['event'])[2:-1],
+    str(hltv.get_results()[4]['team1'])[2:-1],
+    str(hltv.get_results()[4]['team1score']),
+    str(hltv.get_results()[4]['team2score']),
+    str(hltv.get_results()[4]['team2'])[2:-1]
+        )
+        
+        embed=discord.Embed(title="Latest 5 Matches", description=msg, color=0x0069d2)
+        embed.set_author(name="HLTV", url="https://www.hltv.org/", icon_url="https://pbs.twimg.com/profile_images/766575292441845760/ySDr_slD_400x400.jpg")
+        await ctx.send(embed=embed)
+
     @hltv.command(name='nextmatches', aliases=['nextmatch','matches','match'])
     async def nextmatches(self, ctx):
 
