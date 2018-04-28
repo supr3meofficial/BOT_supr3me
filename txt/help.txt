@@ -6,8 +6,8 @@
  `+ nibba`
  `+ race`
  `+ opencase`
- `+ ping`
  `+ label`
+  `+ oof`
 
  **General:**
  `+ publicmessage`
@@ -15,6 +15,7 @@
  `+ hltv`
 
  **Utilities:**
+  `+ ping`
  `+ roll`
  `+ choose`
  `+ joined` 
