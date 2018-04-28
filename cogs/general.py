@@ -12,54 +12,76 @@ class GeneralCommandsCog:
 	@commands.guild_only()
 	async def joined(self, ctx, *, member: discord.Member):
 		"""Says when a member joined."""
-		await ctx.send(f':bust_in_silhouette:│ **User** `{member.display_name}` **joined at** `{member.joined_at}` :thinking:')
+
+		requested_by = "Requested by {}".format(ctx.author.name)
+		msg = '**Join date:** `{}`'.format(member.joined_at)
+
+		embed = discord.Embed(title="", description=msg, colour=ctx.author.colour)
+		embed.set_author(icon_url=member.avatar_url, name=str(member))
+		embed.set_footer(text=requested_by)
+		
+		await ctx.send(embed=embed)
 
 	@commands.command(name='cool')
 	async def cool_bot(self, ctx):
 		"""Is it cool?"""
-		coolness = random.randint(1,2)
-		if coolness == 1:
-			await ctx.send(':game_die:│ **Very Cool**')
 
+		member = ctx.author
+		coolness = random.randint(1,2)
+
+		if coolness == 1:
+			msg = ':game_die: **Very Cool!**'
 		elif coolness == 2:
-			await ctx.send(':game_die:│ **Not Cool!**')
+			msg = ':game_die: **Not Cool!**'
+		
+		embed = discord.Embed(title="", description=msg, colour=member.colour)
+		embed.set_author(icon_url=member.avatar_url, name=str(member))
+		await ctx.send(embed=embed)
 
 	@commands.command()
 	@commands.guild_only()
 	async def ping(self, ctx):
-		
-		pong_msg = ':ping_pong: **PONG!**'
-		await ctx.send(pong_msg)
+
+		member = ctx.author
+		requested_by = "Requested by {}".format(ctx.author.name)
+		latency = '{0}'.format(round(self.bot.latency, 1))
+		desc = "<:signal:439905517280690176> **Latency:** {} ms".format(latency)
+
+		embed = discord.Embed(title="", description=desc, colour=member.colour)
+		embed.set_author(icon_url=self.bot.user.avatar_url, name=str(self.bot.user.name))
+		embed.set_footer(text=requested_by)
+		await ctx.send(embed=embed)
 
 	@commands.command()
 	@commands.guild_only()
 	async def publicmessage(self, ctx, *phrase):
 
+		member = ctx.author
+
 		if "read" in phrase:
 			with open('txt/secret.txt','r') as read_secret:
-				await ctx.send(read_secret.read())
-
+				msg = read_secret.read()
+				return await ctx.send(msg)
+				
 		else:
 			if "@here" in phrase:
-				await ctx.send(':warning: **Unauthorised message.**')
+				msg = ':warning: **Unauthorised message.**'
+				return await ctx.send(msg)
 
 			elif "@everyone" in phrase:
-				await ctx.send(':warning: **Unauthorised message.**')
+				msg = ':warning: **Unauthorised message.**'
 
 			else:
 				with open('txt/secret.txt','w') as write_secret:
-
 					for word in phrase:
-
 						write_secret.write(word)
 						write_secret.write(' ')
 
-				await ctx.send(':secret:│ **Message has been saved.** Do +publicmessage read to read it')
+				msg = ':secret:│ **Message has been saved.** Do +publicmessage read to read it'
 
+		embed = discord.Embed(title="", description=msg, colour=member.colour)
+		embed.set_author(icon_url=member.avatar_url, name=str(member))
+		await ctx.send(embed=embed)
 
-	
-
-# The setup fucntion below is neccesarry. Remember we give bot.add_cog() the name of the class in this case MembersCog.
-# When we load the cog, we use the name of the file.
 def setup(bot):
 	bot.add_cog(GeneralCommandsCog(bot))
