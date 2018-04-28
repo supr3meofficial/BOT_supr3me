@@ -1,6 +1,5 @@
 
 **Fun Stuff:**
- `+ label`
  `+ cool`
  `+ cat`
  `+ dog`
