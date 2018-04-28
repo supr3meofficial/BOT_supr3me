@@ -85,7 +85,11 @@ def display_help(help_to_display = None):
 
 	elif help_to_display == 'invite':
 
-		show_help = ':question:│ `Usage: +invite `\n:grey_exclamation:│ `Posts the bot invitation link`'
+		show_help = ':question:│ `Usage: +invite `\n:grey_exclamation:│ `Result: Posts the bot invitation link`'
+	
+	elif help_to_display == 'oof':
+
+		show_help = ':question:│ `Usage: +oof `\n:grey_exclamation:│ `Result: Posts an oof`'
 
 	else:
 
