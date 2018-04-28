@@ -106,6 +106,8 @@ class GamesCog:
 	@commands.guild_only()
 	async def label(self, ctx, subject="You"):
 
+		member = ctx.author
+
 		if "@everyone" in subject:
 			await ctx.send(":warning: You cannot do that!")
 
@@ -113,11 +115,13 @@ class GamesCog:
 			await ctx.send(":warning: You cannot do that!")
 
 		else:
-			ll = ["a <:l_trap:437614608618881024>","a <:l_thot:437614528881229833>","<:l_gay:437614582849208322>"]
-			l = random.choice(ll)
+			label_list = ["a <:l_trap:437614608618881024>","a <:l_thot:437614528881229833>","<:l_gay:437614582849208322>"]
+			label = random.choice(label_list)
 
-			msg = "{} has been labeled as {}".format(subject, l)
-			await ctx.send(msg)
+			msg = "{} has been labeled as {}".format(subject, label)
+			embed = discord.Embed(title="", description=msg, colour=member.colour)
+			embed.set_author(icon_url=member.avatar_url, name=str(member))
+			await ctx.send(embed=embed)
 
 
 def setup(bot):
