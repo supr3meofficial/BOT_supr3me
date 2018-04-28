@@ -75,11 +75,7 @@ class GamesCog:
 	@commands.guild_only()
 	async def choose(self, ctx, *choices : str):
 		
-		if "<@" in choices:
-			choice_msg = ":game_die:│ **Chose:** {}".format(random.choice(choices))
-		else:
-			choice_msg = ":game_die:│ **Chose:** `{}`".format(random.choice(choices))
-
+		choice_msg = ":game_die:│ **Chose:** {}".format(random.choice(choices))
 		await ctx.send(choice_msg)
 
 	@commands.command()
