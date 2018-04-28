@@ -55,28 +55,34 @@ class GamesCog:
 	@commands.guild_only()
 	async def roll(self, ctx, maximum_roll = 100, rigged = False):
 
-		result = ":game_die:│ **Rolled:** `{}`".format(str( random.randint(0,maximum_roll) ))
+		member = ctx.author
+		result = ":game_die: **Rolled:** `{}`".format(str(random.randint(0,maximum_roll)))
 
-		if maximum_roll <= 2:
-			await ctx.send(":warning: You can't roll a number smaller than 2")
-
-		elif maximum_roll >= 100000000000000000000:
-			await ctx.send(":warning: Rolls shouldn't be higher than 100000000000000000000")
-
+		if rigged:
+			result = ":game_die: **Rolled:** `{}`".format(maximum_roll)
+			
 		else:
-			if rigged == False:
-				await ctx.send(result)
+			if maximum_roll <= 2:
+				result = ":warning: You can't roll a number smaller than 2"
+			elif maximum_roll >= 100000000000000000000:
+				result = ":warning: Rolls shouldn't be higher than 100000000000000000000"
+		
+		embed = discord.Embed(title="", description=result, colour=member.colour)
+		embed.set_author(icon_url=member.avatar_url, name=str(member))
+		await ctx.send(embed=embed)
 
-			else:
-				result = ":game_die:│ **Rolled:** `{}`".format(str(maximum_roll))
-				await ctx.send(result)
+
 
 	@commands.command()
 	@commands.guild_only()
 	async def choose(self, ctx, *choices : str):
-		
-		choice_msg = ":game_die:│ **Chose:** {}".format(random.choice(choices))
-		await ctx.send(choice_msg)
+
+		member = ctx.author
+		choice_msg = ":game_die: **Chose:** {}".format(random.choice(choices))
+
+		embed = discord.Embed(title="", description=choice_msg, colour=member.colour)
+		embed.set_author(icon_url=member.avatar_url, name=str(member))
+		await ctx.send(embed=embed)
 
 	@commands.command()
 	@commands.guild_only()
