@@ -77,11 +77,17 @@ class GeneralCommandsCog:
 						write_secret.write(word)
 						write_secret.write(' ')
 
-				msg = ':secret:│ **Message has been saved.** Do +publicmessage read to read it'
+				msg = ':secret: **Message has been saved.** Do +publicmessage read to read it'
 
 		embed = discord.Embed(title="", description=msg, colour=member.colour)
 		embed.set_author(icon_url=member.avatar_url, name=str(member))
 		await ctx.send(embed=embed)
+
+	@commands.command()
+	@commands.guild_only()
+	async def oof(self, ctx):
+
+		await ctx.send("<:oof:439920274029412352>")
 
 def setup(bot):
 	bot.add_cog(GeneralCommandsCog(bot))
