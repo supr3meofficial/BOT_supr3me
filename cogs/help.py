@@ -81,7 +81,7 @@ def display_help(help_to_display = None):
 
 	elif help_to_display == 'hltv':
 
-		show_help = ':question:│ `Usage: +hltv`\n:grey_exclamation:│ `Commands: top5, top15, nextmatches`'
+		show_help = ':question:│ `Usage: +hltv`\n:grey_exclamation:│ `Commands: top5, top15, nextmatches, results`'
 
 	elif help_to_display == 'invite':
 
