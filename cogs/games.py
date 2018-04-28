@@ -106,7 +106,6 @@ class GamesCog:
 	@commands.guild_only()
 	async def label(self, ctx, subject="You"):
 
-		print(subject)
 		if "@everyone" in subject:
 			await ctx.send(":warning: You cannot do that!")
 
