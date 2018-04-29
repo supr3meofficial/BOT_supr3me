@@ -97,7 +97,7 @@ def display_help(help_to_display = None):
 	
 	elif help_to_display == 'unban':
 
-		show_help = ':question:│ `Usage: +unban <member> <reason> `\n:grey_exclamation:│ `Result: Unbans a member`'
+		show_help = ':question:│ `Usage: +unban <id> <reason> `\n:grey_exclamation:│ `Result: Unbans a member`'
 	
 	elif help_to_display == 'kick':
 
