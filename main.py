@@ -176,13 +176,6 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=embed)
         return
 	
-    if isinstance(error, discord.Forbidden):
-        embed = discord.Embed(title="No permissions",
-        description="You do not have permission to perform this command",
-        colour=0xbf0000)
-        embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
-        await ctx.send(embed=embed)
-
     if isinstance(error, commands.UserInputError):
         embed = discord.Embed(title="Invalid input",
 				description="Please re-check your command and try again",
