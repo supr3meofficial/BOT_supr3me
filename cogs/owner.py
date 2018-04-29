@@ -21,8 +21,9 @@ class OwnerCog:
 
 	def __init__(self, bot):
 		self.bot = bot
-	
-	# Hidden means it won't show up on the default help.
+
+	# BOT OWNER COMMANDS 
+
 	@commands.command(name='load', hidden=True)
 	@commands.is_owner()
 	async def cog_load(self, ctx, *, cog: str):
@@ -103,14 +104,11 @@ class OwnerCog:
 		if not member:
 			member = ctx.author
 
-		# Here we check if the value of each permission is True.
 		perms = '\n'.join(perm for perm, value in member.guild_permissions if value)
 
-		# And to make it look nice, we wrap it in an Embed.
 		embed = discord.Embed(title='Permissions for:', description=ctx.guild.name, colour=member.colour)
 		embed.set_author(icon_url=member.avatar_url, name=str(member))
 
-		# \uFEFF is a Zero-Width Space, which basically allows us to have an empty field name.
 		embed.add_field(name='\uFEFF', value=perms)
 
 		await ctx.send(content=None, embed=embed)
@@ -177,8 +175,85 @@ class OwnerCog:
 		embed.add_field(name='**Member Activity:**', value=str(member.activity), inline=False)
 		await ctx.send(embed=embed)
 
+	# GUILD OWNER/STAFF COMMANDS:
+	
+	@commands.command()
+	@commands.guild_only()
+	@commands.has_permissions(ban_members=True)
+	async def ban(self, ctx, member: discord.Member, reason=None, delete_message_days=0):
 
-# Thanks to Gio for the Command.
+		banned_by = "Banned by {}".format(ctx.author.name)
+		user_banned = "{} is no longer.".format(member.name)
+		guild = ctx.message.guild
+
+		embed = discord.Embed(title='',
+		description='<:BanHammer:439943003847786499> The ban hammer has spoken', 
+		colour=ctx.author.colour)
+		embed.set_author(icon_url=member.avatar_url, name=user_banned)
+		embed.set_footer(text=banned_by)
+
+		try:
+			await guild.ban(member, reason=reason, delete_message_days=delete_message_days)
+			await ctx.send(embed=embed)
+
+		except discord.Forbidden:
+			embed = discord.Embed(title='No permissions',
+			description="You do not have enough permissions to perform this command",
+			colour=0xbf0000)
+			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
+			await ctx.send(embed=embed)
+		
+	@commands.command()
+	@commands.guild_only()
+	@commands.has_permissions(kick_members=True)
+	async def kick(self, ctx, member: discord.Member, reason=None):
+
+		kicked_by = "Kicked by {}".format(ctx.author.name)
+		user_kicked = "{} is gone.".format(member.name)
+		guild = ctx.message.guild
+
+		embed = discord.Embed(title='',
+		description='<:BanHammer:439943003847786499> The ban hammer has spoken, lightly', 
+		colour=ctx.author.colour)
+		embed.set_author(icon_url=member.avatar_url, name=user_kicked)
+		embed.set_footer(text=kicked_by)
+
+		try:
+			await guild.kick(member, reason=reason)
+			await ctx.send(embed=embed)
+
+		except discord.Forbidden:
+			embed = discord.Embed(title='No permissions',
+			description="You do not have enough permissions to perform this command",
+			colour=0xbf0000)
+			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
+			await ctx.send(embed=embed)
+
+	@commands.command()
+	@commands.guild_only()
+	@commands.has_permissions(ban_members=True)
+	async def unban(self, ctx, member: int, reason=None):
+
+		unbanned_by = "Unbanned by {}".format(ctx.author.name)
+		user_unbanned = "ID {} has been unbanned".format(member)
+		guild = ctx.message.guild
+
+		embed = discord.Embed(title='',
+		description='<:BanHammer:439943003847786499> The ban hammer has forgiven', 
+		colour=ctx.author.colour)
+		embed.set_author(icon_url="https://cdn.discordapp.com/embed/avatars/0.png", name=user_unbanned)
+		embed.set_footer(text=unbanned_by)
+
+		try:
+			await guild.unban(user=discord.Object(id=member), reason=reason)
+			await ctx.send(embed=embed)
+
+		except discord.Forbidden:
+			embed = discord.Embed(title='No permissions',
+			description="You do not have enough permissions to perform this command",
+			colour=0xbf0000)
+			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
+			await ctx.send(embed=embed)
 
 def setup(bot):
 	bot.add_cog(OwnerCog(bot))
