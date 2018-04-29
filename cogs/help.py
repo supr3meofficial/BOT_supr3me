@@ -90,6 +90,18 @@ def display_help(help_to_display = None):
 	elif help_to_display == 'oof':
 
 		show_help = ':question:│ `Usage: +oof `\n:grey_exclamation:│ `Result: Posts an oof`'
+	
+	elif help_to_display == 'ban':
+
+		show_help = ':question:│ `Usage: +ban <member> <reason> <delete_message_days> `\n:grey_exclamation:│ `Result: Bans a member`'
+	
+	elif help_to_display == 'unban':
+
+		show_help = ':question:│ `Usage: +unban <member> <reason> `\n:grey_exclamation:│ `Result: Unbans a member`'
+	
+	elif help_to_display == 'kick':
+
+		show_help = ':question:│ `Usage: +kick <member> <reason> `\n:grey_exclamation:│ `Result: Kicks a member`'
 
 	else:
 
