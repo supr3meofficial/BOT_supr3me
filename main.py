@@ -2,8 +2,10 @@ import discord
 from discord.ext import commands
 import asyncio
 import datetime
-import sys, traceback
+import sys
+import traceback
 import os
+import math
 
 def get_prefix(bot, message):
 	"""Bot prefixes"""
@@ -122,10 +124,98 @@ async def on_member_update(before, after):
 		if str(after.activity) == "PLAYERUNKOWN'S BATTLEGROUNDS":
 			rolepubg = discord.utils.get(guild.roles, id=384112588113313793)
 			await after.add_roles(rolepubg)
+            
 	except (discord.Forbidden, discord.NotFound):
 		pass
+    
+@bot.event
+async def on_command_error(ctx, error):
+    # Return in local command handler
+    if hasattr(ctx.command, 'on_error'):
+        return
 
+    # Get the original exception
+    error = getattr(error, 'original', error)
+
+    if isinstance(error, commands.CommandNotFound):
+        return
+
+    if isinstance(error, commands.BotMissingPermissions):
+        missing = [perm.replace('_', ' ').replace('guild', 'server').title() for perm in error.missing_perms]
+        if len(missing) > 2:
+            fmt = '{}, and {}'.format("**, **".join(missing[:-1]), missing[-1])
+        else:
+            fmt = ' and '.join(missing)
+        _message = 'I need the **{}** permission(s) to run this command.'.format(fmt)
+        embed = discord.Embed(title="No permissions",
+		description=_message,
+		colour=0xbf0000)
+        embed.set_author(icon_url=bot.user.avatar_url, name=bot.user.name)
+        await ctx.send(embed=embed)
+        return
+
+    if isinstance(error, commands.DisabledCommand):
+        await ctx.send('This command has been disabled.')
+        return
+
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.send("This command is on cooldown, please retry in {}s.".format(math.ceil(error.retry_after)))
+        return
+
+    if isinstance(error, commands.MissingPermissions):
+        missing = [perm.replace('_', ' ').replace('guild', 'server').title() for perm in error.missing_perms]
+        if len(missing) > 2:
+            fmt = '{}, and {}'.format("**, **".join(missing[:-1]), missing[-1])
+        else:
+            fmt = ' and '.join(missing)
+        _message = 'You need the **{}** permission(s) to use this command.'.format(fmt)
+        embed = discord.Embed(title="No permissions",
+		description=_message,
+		colour=0xbf0000)
+        embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
+        await ctx.send(embed=embed)
+        return
 	
+    if isinstance(error, discord.Forbidden):
+        embed = discord.Embed(title="No permissions",
+        description="You do not have permission to perform this command",
+        colour=0xbf0000)
+        embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
+        await ctx.send(embed=embed)
+
+    if isinstance(error, commands.UserInputError):
+        embed = discord.Embed(title="Invalid input",
+				description="",
+				colour=0xbf0000)
+        embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author.name)
+        await ctx.send(embed=embed)
+        return
+
+    if isinstance(error, commands.NoPrivateMessage):
+        try:
+            await ctx.author.send('This command cannot be used in direct messages.')
+        except discord.Forbidden:
+            pass
+        return
+
+    if isinstance(error, commands.CheckFailure):
+        embed = discord.Embed(title="Invalid input",
+				description="You do not have permission to use this command.",
+				colour=0xbf0000)
+        embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author.name)
+        await ctx.send(embed=embed)
+        return
+
+    # Ignore all other exception types, but print them to stderr
+    print('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
+
+    traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
+
+@bot.event
+async def on_error(event, *args, **kwargs):
+
+	print("[ERROR]",sys.exc_info())
+
 @bot.event
 async def on_member_join(member):
 # The Panther Lounge Automatic Role Assignment (MEMBER ROLE)
@@ -137,8 +227,6 @@ async def on_member_join(member):
 		await member.add_roles(role)
 	except (discord.Forbidden, discord.NotFound):
 		pass
-
-
 
 @bot.event
 async def on_ready():
@@ -163,6 +251,5 @@ async def on_ready():
 		await bot.change_presence(status=discord.Status.online, activity=discord.Game("@supr3meofficial"))
 		await asyncio.sleep(300)
 		print("\n[INFO] Changed bot's activity and status")
-
 
 bot.run(os.environ['BOT_TOKEN'], bot=True, reconnect=True)
