@@ -187,7 +187,7 @@ class OwnerCog:
 		guild = ctx.message.guild
 
 		embed = discord.Embed(title='',
-		description='<:BanHammer:439943003847786499> The ban hammer has spoken', 
+		description="<:BanHammer:439943003847786499> The ban hammer has spoken", 
 		colour=ctx.author.colour)
 		embed.set_author(icon_url=member.avatar_url, name=user_banned)
 		embed.set_footer(text=banned_by)
@@ -201,7 +201,18 @@ class OwnerCog:
 			description="You do not have enough permissions to perform this command",
 			colour=0xbf0000)
 			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
-			await ctx.send(embed=embed)
+			await ctx.send(embed=embed)	
+
+	@ban.error
+	async def ban_handler(self, ctx, error):
+
+		if isinstance(error, commands.MissingRequiredArgument):
+			embed = discord.Embed(title="Invalid argument",
+			description="Invalid argument. Usage: `ban <member> <reason> <delete_message_days>`",
+			colour=0xbf0000)
+			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author.name)
+			await ctx.send(embed=embed)	
+
 		
 	@commands.command()
 	@commands.guild_only()
@@ -213,7 +224,7 @@ class OwnerCog:
 		guild = ctx.message.guild
 
 		embed = discord.Embed(title='',
-		description='<:BanHammer:439943003847786499> The ban hammer has spoken, lightly', 
+		description="<:BanHammer:439943003847786499> The ban hammer has spoken, lightly", 
 		colour=ctx.author.colour)
 		embed.set_author(icon_url=member.avatar_url, name=user_kicked)
 		embed.set_footer(text=kicked_by)
@@ -229,6 +240,16 @@ class OwnerCog:
 			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
 			await ctx.send(embed=embed)
 
+	@kick.error
+	async def kick_handler(self, ctx, error):
+
+			if isinstance(error, commands.MissingRequiredArgument):
+				embed = discord.Embed(title="Invalid argument",
+				description="Invalid argument. Usage: `ban <member> <reason> <delete_message_days>`",
+				colour=0xbf0000)
+				embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author.name)
+				await ctx.send(embed=embed)	
+
 	@commands.command()
 	@commands.guild_only()
 	@commands.has_permissions(ban_members=True)
@@ -238,8 +259,8 @@ class OwnerCog:
 		user_unbanned = "ID {} has been unbanned".format(member)
 		guild = ctx.message.guild
 
-		embed = discord.Embed(title='',
-		description='<:BanHammer:439943003847786499> The ban hammer has forgiven', 
+		embed = discord.Embed(title="",
+		description="<:BanHammer:439943003847786499> The ban hammer has forgiven", 
 		colour=ctx.author.colour)
 		embed.set_author(icon_url="https://cdn.discordapp.com/embed/avatars/0.png", name=user_unbanned)
 		embed.set_footer(text=unbanned_by)
@@ -254,6 +275,16 @@ class OwnerCog:
 			colour=0xbf0000)
 			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
 			await ctx.send(embed=embed)
+
+	@unban.error
+	async def unban_handler(self, ctx, error):
+
+		if isinstance(error, commands.MissingRequiredArgument):
+			embed = discord.Embed(title="Invalid argument",
+			description="Invalid argument. Usage: `ban <member> <reason> <delete_message_days>`",
+			colour=0xbf0000)
+			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author.name)
+			await ctx.send(embed=embed)	
 
 def setup(bot):
 	bot.add_cog(OwnerCog(bot))
