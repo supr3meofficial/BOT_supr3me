@@ -202,18 +202,7 @@ class OwnerCog:
 			colour=0xbf0000)
 			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
 			await ctx.send(embed=embed)	
-
-	@ban.error
-	async def ban_handler(self, ctx, error):
-
-		if isinstance(error, commands.MissingRequiredArgument):
-			embed = discord.Embed(title="Invalid argument",
-			description="Invalid argument. Usage: `ban <member> <reason> <delete_message_days>`",
-			colour=0xbf0000)
-			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author.name)
-			await ctx.send(embed=embed)	
-
-		
+			
 	@commands.command()
 	@commands.guild_only()
 	@commands.has_permissions(kick_members=True)
@@ -240,16 +229,6 @@ class OwnerCog:
 			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
 			await ctx.send(embed=embed)
 
-	@kick.error
-	async def kick_handler(self, ctx, error):
-
-			if isinstance(error, commands.MissingRequiredArgument):
-				embed = discord.Embed(title="Invalid argument",
-				description="Invalid argument. Usage: `ban <member> <reason> <delete_message_days>`",
-				colour=0xbf0000)
-				embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author.name)
-				await ctx.send(embed=embed)	
-
 	@commands.command()
 	@commands.guild_only()
 	@commands.has_permissions(ban_members=True)
@@ -275,16 +254,6 @@ class OwnerCog:
 			colour=0xbf0000)
 			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author)
 			await ctx.send(embed=embed)
-
-	@unban.error
-	async def unban_handler(self, ctx, error):
-
-		if isinstance(error, commands.MissingRequiredArgument):
-			embed = discord.Embed(title="Invalid argument",
-			description="Invalid argument. Usage: `ban <member> <reason> <delete_message_days>`",
-			colour=0xbf0000)
-			embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author.name)
-			await ctx.send(embed=embed)	
 
 def setup(bot):
 	bot.add_cog(OwnerCog(bot))
