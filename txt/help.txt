@@ -7,7 +7,7 @@
  `+ race`
  `+ opencase`
  `+ label`
-  `+ oof`
+ `+ oof`
 
  **General:**
  `+ publicmessage`
@@ -15,10 +15,13 @@
  `+ hltv`
 
  **Utilities:**
-  `+ ping`
+ `+ ping`
  `+ roll`
  `+ choose`
- `+ joined` 
+ `+ joined`
+ `+ ban`
+ `+ unban`
+ `+ kick`
 
 **Misc:**
  `+ invite`
