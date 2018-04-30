@@ -45,7 +45,7 @@ class MiscCog:
     async def cat(self, ctx):
         async with aiohttp.ClientSession() as session:
             async with session.get('http://aws.random.cat/meow') as r:
-
+				
                 if r.status == 200:
 
                     js = await r.json()
@@ -101,6 +101,15 @@ class MiscCog:
         await asyncio.sleep(1)
         await botmsg.edit(content=":clock12:")
         await botmsg.add_reaction("🏁")
+
+    @commands.command()
+    @commands.guild_only()
+    async def dab(self, ctx, member):
+
+        msg = "<:Dab:423581839165358080> {} just dabbed on {}".format(ctx.author.name, member)
+        embed = discord.Embed(title="<:Dab:423581839165358080> Dabbing on the haters", description=msg, colour=ctx.author.colour)
+        await ctx.send(embed=embed)
+		
 
 def setup(bot):
     bot.add_cog(MiscCog(bot))
