@@ -10,6 +10,7 @@ class CaseOpeningCog:
 
 	@commands.command()
 	@commands.guild_only()
+	@commands.cooldown(1, 5, commands.BucketType.user)
 	async def opencase(self, ctx, rigged_argument = "normal_drop_rate"):
 
 			member = ctx.author
