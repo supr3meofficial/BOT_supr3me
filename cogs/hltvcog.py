@@ -80,27 +80,27 @@ class HLTVCog:
 
         async with ctx.channel.typing():
 
-            match1_date = str(hltv.get_matches()[0]['date'])[2:-1]
+            #match1_date = str(hltv.get_matches()[0]['date'])[2:-1]
             match1_time = str(hltv.get_matches()[0]['time'])[2:-1]
             match1_event = str(hltv.get_matches()[0]['event'])[2:-1]
             match1_team1 = str(hltv.get_matches()[0]['team1'])[2:-1]
             match1_team2 = str(hltv.get_matches()[0]['team2'])[2:-1]
-            match2_date = str(hltv.get_matches()[1]['date'])[2:-1]
+            #match2_date = str(hltv.get_matches()[1]['date'])[2:-1]
             match2_time = str(hltv.get_matches()[1]['time'])[2:-1]
             match2_event = str(hltv.get_matches()[1]['event'])[2:-1]
             match2_team1 = str(hltv.get_matches()[1]['team1'])[2:-1]
             match2_team2 = str(hltv.get_matches()[1]['team2'])[2:-1]
-            match3_date = str(hltv.get_matches()[2]['date'])[2:-1]
+            #match3_date = str(hltv.get_matches()[2]['date'])[2:-1]
             match3_time = str(hltv.get_matches()[2]['time'])[2:-1]
             match3_event = str(hltv.get_matches()[2]['event'])[2:-1]
             match3_team1 = str(hltv.get_matches()[2]['team1'])[2:-1]
             match3_team2 = str(hltv.get_matches()[2]['team2'])[2:-1]
-            match4_date = str(hltv.get_matches()[3]['date'])[2:-1]
+            #match4_date = str(hltv.get_matches()[3]['date'])[2:-1]
             match4_time = str(hltv.get_matches()[3]['time'])[2:-1]
             match4_event = str(hltv.get_matches()[3]['event'])[2:-1]
             match4_team1 = str(hltv.get_matches()[3]['team1'])[2:-1]
             match4_team2 = str(hltv.get_matches()[3]['team2'])[2:-1]
-            match5_date = str(hltv.get_matches()[4]['date'])[2:-1]
+            #match5_date = str(hltv.get_matches()[4]['date'])[2:-1]
             match5_time = str(hltv.get_matches()[4]['time'])[2:-1]
             match5_event = str(hltv.get_matches()[4]['event'])[2:-1]
             match5_team1 = str(hltv.get_matches()[4]['team1'])[2:-1]
@@ -144,64 +144,66 @@ class HLTVCog:
 
         async with ctx.channel.typing():
                 
-            a = '''
-
-**1. {}**:
-• {}
-• {}
-• {}
-• {}
-• {}
-**2. {}**:
-• {}
-• {}
-• {}
-• {}
-• {}
-**3. {}**:
-• {}
-• {}
-• {}
-• {}
-• {}
-**4. {}**:
-• {}
-• {}
-• {}
-• {}
-• {}
-**5. {}**:
+            team_1 = '''
 • {}
 • {}
 • {}
 • {}
 • {}
             '''.format(
-                hltv.top5teams()[0],
                 hltv.top30teams()[0]['team-players'][0]['name'],
                 hltv.top30teams()[0]['team-players'][1]['name'],
                 hltv.top30teams()[0]['team-players'][2]['name'],
                 hltv.top30teams()[0]['team-players'][3]['name'],
-                hltv.top30teams()[0]['team-players'][4]['name'],
-                hltv.top5teams()[1],
+                hltv.top30teams()[0]['team-players'][4]['name']
+                )
+
+            team_2 = '''
+• {}
+• {}
+• {}
+• {}
+• {}
+            '''.format(
                 hltv.top30teams()[1]['team-players'][0]['name'],
                 hltv.top30teams()[1]['team-players'][1]['name'],
                 hltv.top30teams()[1]['team-players'][2]['name'],
                 hltv.top30teams()[1]['team-players'][3]['name'],
-                hltv.top30teams()[1]['team-players'][4]['name'],
-                hltv.top5teams()[2],
+                hltv.top30teams()[1]['team-players'][4]['name']
+                )
+            team_3 = '''
+• {}
+• {}
+• {}
+• {}
+• {}
+            '''.format(
                 hltv.top30teams()[2]['team-players'][0]['name'],
                 hltv.top30teams()[2]['team-players'][1]['name'],
                 hltv.top30teams()[2]['team-players'][2]['name'],
                 hltv.top30teams()[2]['team-players'][3]['name'],
-                hltv.top30teams()[2]['team-players'][4]['name'],
-                hltv.top5teams()[3], 
+                hltv.top30teams()[2]['team-players'][4]['name']
+                )
+            team_4 = '''
+• {}
+• {}
+• {}
+• {}
+• {}
+            '''.format(
                 hltv.top30teams()[3]['team-players'][0]['name'],
                 hltv.top30teams()[3]['team-players'][1]['name'],
                 hltv.top30teams()[3]['team-players'][2]['name'],
                 hltv.top30teams()[3]['team-players'][3]['name'],
-                hltv.top30teams()[3]['team-players'][4]['name'],
-                hltv.top5teams()[4],
+                hltv.top30teams()[3]['team-players'][4]['name']
+                )
+            team_5 = '''
+• {}
+• {}
+• {}
+• {}
+• {}
+            '''.format(
                 hltv.top30teams()[4]['team-players'][0]['name'],
                 hltv.top30teams()[4]['team-players'][1]['name'],
                 hltv.top30teams()[4]['team-players'][2]['name'],
@@ -209,8 +211,13 @@ class HLTVCog:
                 hltv.top30teams()[4]['team-players'][4]['name']
                 )
 
-            embed=discord.Embed(title="Current Top 5", description=a, color=0x0069d2)
+            embed=discord.Embed(title="Current Top 5", description="", color=0x0069d2)
             embed.set_author(name="HLTV", url="https://www.hltv.org/", icon_url="https://pbs.twimg.com/profile_images/766575292441845760/ySDr_slD_400x400.jpg")
+            embed.add_field(name=hltv.top5teams()[0], value=team_1, inline=False)
+            embed.add_field(name=hltv.top5teams()[1], value=team_2, inline=False)
+            embed.add_field(name=hltv.top5teams()[2], value=team_3, inline=False)
+            embed.add_field(name=hltv.top5teams()[3], value=team_4, inline=False)
+            embed.add_field(name=hltv.top5teams()[4], value=team_5, inline=False)
             await ctx.send(embed=embed)
 
     @hltv.command()
