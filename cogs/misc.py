@@ -106,7 +106,7 @@ class MiscCog:
     @commands.guild_only()
     async def dab(self, ctx, member):
 
-        msg = "<:Dab:423581839165358080> {} just dabbed on {}".format(ctx.author.name, member)
+        msg = ":arrow_forward: {} just dabbed on {}".format(ctx.author.name, member)
         embed = discord.Embed(title="<:Dab:423581839165358080> Dabbing on the haters", description=msg, colour=ctx.author.colour)
         await ctx.send(embed=embed)
 		
