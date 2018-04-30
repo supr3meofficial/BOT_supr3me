@@ -102,6 +102,10 @@ def display_help(help_to_display = None):
 	elif help_to_display == 'kick':
 
 		show_help = ':question:│ `Usage: +kick <member> <reason> `\n:grey_exclamation:│ `Result: Kicks a member`'
+	
+	elif help_to_display == 'dab':
+		
+		show_help = ':question:│ `Usage: +dab <anything> `\n:grey_exlamation:│ `Result: Dabs on the harers`'
 
 	else:
 
