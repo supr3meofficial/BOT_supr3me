@@ -190,7 +190,7 @@ async def on_command_error(ctx, error):
 
     if isinstance(error, commands.UserInputError):
         embed = discord.Embed(title="Invalid input",
-				description="",
+				description="Please re-check your command and try again",
 				colour=0xbf0000)
         embed.set_author(icon_url=ctx.author.avatar_url, name=ctx.author.name)
         await ctx.send(embed=embed)
