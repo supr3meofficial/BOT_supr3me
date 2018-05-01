@@ -9,6 +9,8 @@
  `+ label`
  `+ oof`
  `+ dab`
+ `+ literallyme`
+ `+ mitochondria`
 
  **General:**
  `+ publicmessage`
