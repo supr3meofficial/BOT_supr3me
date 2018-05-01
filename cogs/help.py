@@ -122,7 +122,7 @@ class HelpCog:
 		display_help(h_command)
 		await ctx.message.add_reaction("❔")
 		embed=discord.Embed(title="Commands List", description=show_help, color=0x0080c0)
-		embed.set_footer(text="Type +help <command> for the usage of a command\nCoded by supr3me", icon_url=self.bot.user.avatar_url)
+		embed.set_footer(text="Type +help <command> for the usage of a command | Coded by supr3me", icon_url=self.bot.user.avatar_url)
 		await ctx.author.send(embed=embed)
 
 def setup(bot):
