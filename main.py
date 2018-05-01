@@ -121,7 +121,7 @@ async def on_member_update(before, after):
 			rolelol = discord.utils.get(guild.roles, id=384112673853276161)
 			await after.add_roles(rolelol)
 
-		if str(after.activity) == "PLAYERUNKOWN'S BATTLEGROUNDS":
+		if str(after.activity) == "PLAYERUNKNOWN'S BATTLEGROUNDS":
 			rolepubg = discord.utils.get(guild.roles, id=384112588113313793)
 			await after.add_roles(rolepubg)
             
