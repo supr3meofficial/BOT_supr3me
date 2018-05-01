@@ -10,28 +10,24 @@ class MiscCog:
         self.bot = bot
 
     @commands.command()
-    @commands.guild_only()
     async def invite(self, ctx):
 
         embed=discord.Embed(title="<:discord:434011189656158219> BOT Invite Link", url="https://discordapp.com/oauth2/authorize?&client_id=331818798015315970&scope=bot&permissions=8", description="Click the link above to invite the bot to your discord!", color=0x80ff00)
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.guild_only()
     async def discord(self, ctx):
 
         embed=discord.Embed(title="<:discord:434011189656158219> Discord", url="https://discord.gg/FMn43Qq", description="Please join our discord using the link above", color=0x80ff00)
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.guild_only()
     async def patreon(self, ctx):
 
         embed=discord.Embed(title="<:Patreon:437227448384618527> Patreon", url="https://www.patreon.com/supr3me", description="If you would like to become a patron, click the link above, thank you!", color=0x80ff00)
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.guild_only()
     async def donate(self, ctx):
 
         embed=discord.Embed(title="<:steam:434018638748581898> Trade Link", url="https://steamcommunity.com/tradeoffer/new/?partner=342778939&token=tS1Rd02f", description="If you would like to help me, click the link above, thank you!", color=0x80ff00)
@@ -106,10 +102,33 @@ class MiscCog:
     @commands.guild_only()
     async def dab(self, ctx, member):
 
-        msg = ":heavy_check_mark: {} just dabbed on {}".format(ctx.author.name, member)
+        msg = "<:Dab:423581839165358080> {} just dabbed on {}".format(ctx.author.name, member)
         embed = discord.Embed(title="<:Dab:423581839165358080> Dabbing on the haters", description=msg, colour=ctx.author.colour)
         await ctx.send(embed=embed)
 		
+
+    @commands.command()
+    @commands.guild_only()
+    @commands.cooldown(1, 3, commands.BucketType.user)
+    async def mitochondria(self, ctx):
+
+        embed = discord.Embed(title="Mitochondria", description="", colour=ctx.author.colour)
+        embed.set_image(url="https://i.imgur.com/80iINul.jpg")
+        requested_by = "Requested by {}".format(ctx.author.name)
+        embed.set_footer(text=requested_by)
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    @commands.guild_only()
+    @commands.cooldown(1, 3, commands.BucketType.user)
+    async def literallyme(self, ctx):
+
+        literallyme = ["https://i.imgur.com/J56l01s.jpg","https://i.imgur.com/BE1Roa6.jpg","https://i.imgur.com/EOn4t0v.jpg","https://i.imgur.com/GOmd9sE.jpg","https://i.imgur.com/b4RCKxD.jpg","https://i.imgur.com/u45VL8K.jpg","https://i.imgur.com/b9Z1f0H.png"]
+        embed = discord.Embed(title="Literally me", description="", colour=ctx.author.colour)
+        embed.set_image(url=random.choice(literallyme))
+        requested_by = "Requested by {}".format(ctx.author.name)
+        embed.set_footer(text=requested_by)
+        await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(MiscCog(bot))
