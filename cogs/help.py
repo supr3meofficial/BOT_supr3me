@@ -109,11 +109,11 @@ def display_help(help_to_display = None):
 		
 	elif help_to_display == 'mitochondria':
 		
-		show_help = ':question:│ `Usage: +mitochondria `\n:grey_exlamation:│ `Result: Posts a secret message to ISIS`'
+		show_help = ':question:│ `Usage: +mitochondria `\n:grey_exclamation:│ `Result: Posts a secret message to ISIS`'
 	
 	elif help_to_display == 'literallyme':
 		
-		show_help = ':question:│ `Usage: +literallyme `\n:grey_exlamation:│ `Result: Posts a relatable picture`'
+		show_help = ':question:│ `Usage: +literallyme `\n:grey_exclamation:│ `Result: Posts a relatable picture`'
 
 	else:
 
