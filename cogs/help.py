@@ -106,14 +106,6 @@ def display_help(help_to_display = None):
 	elif help_to_display == 'dab':
 		
 		show_help = ':question:│ `Usage: +dab <anything> `\n:grey_exlamation:│ `Result: Dabs on the harers`'
-	
-	elif help_to_display == 'mitochondria':
-		
-		show_help = ':question:│ `Usage: +mitochondria `\n:grey_exlamation:│ `Result: Posts a secret message to ISIS`'
-	
-	elif help_to_display == 'literallyme':
-		
-		show_help = ':question:│ `Usage: +literallyme `\n:grey_exlamation:│ `Result: Posts a relatable picture`'
 
 	else:
 
@@ -128,10 +120,9 @@ class HelpCog:
 	async def help(self, ctx, h_command = None):
 		
 		display_help(h_command)
-		embed=discord.Embed(title="Help", description="Check DM's", color=0x0080c0)
-		embed.set_author(icon_url=ctx.author.avatar_url, name=str(ctx.author))
-		await ctx.send(embed=embed)
-		embed=discord.Embed(title="Help", description=show_help, color=0x0080c0)
+		await ctx.message.add_reaction("❔")
+		embed=discord.Embed(title="Commands List", description=show_help, color=0x0080c0)
+		embed.set_footer(text="Type +help <command> for the usage of a command", icon_url=self.bot.user.avatar_url)
 		await ctx.author.send(embed=embed)
 
 def setup(bot):
