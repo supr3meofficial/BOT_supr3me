@@ -1,5 +1,6 @@
 
 **Fun Stuff:**
+
  `+ cool`
  `+ cat`
  `+ dog`
@@ -13,11 +14,13 @@
  `+ mitochondria`
 
  **General:**
+
  `+ publicmessage`
  `+ clock`
  `+ hltv`
 
  **Utilities:**
+
  `+ ping`
  `+ roll`
  `+ choose`
@@ -27,13 +30,9 @@
  `+ kick`
 
 **Misc:**
+
  `+ invite`
  `+ discord`
  `+ donate`
  `+ patreon`
 
-
-**Type +help <command> for the usage of a command**
-```css
-Coded by supr3me :3
-```
