@@ -247,7 +247,7 @@ async def on_ready():
 		await bot.change_presence(status=discord.Status.online, activity=discord.Streaming(name="+help", url="http://twitch.tv/supr3meofficial"))
 		await asyncio.sleep(300)
 		print("\n[INFO] Changed bot's activity and status")
-		await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(name="v2.0", type=3))
+		await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(name="v2.0 Release", type=3))
 		await asyncio.sleep(300)
 		print("\n[INFO] Changed bot's activity and status")
 		await bot.change_presence(status=discord.Status.dnd, activity=discord.Activity(name="New: +hltv", type=2))
