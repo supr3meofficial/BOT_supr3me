@@ -123,7 +123,7 @@ class MiscCog:
     @commands.cooldown(1, 3, commands.BucketType.user)
     async def literallyme(self, ctx):
 
-        literallyme = ["https://i.imgur.com/J56l01s.jpg","https://i.imgur.com/BE1Roa6.jpg","https://i.imgur.com/EOn4t0v.jpg","https://i.imgur.com/GOmd9sE.jpg","https://i.imgur.com/b4RCKxD.jpg","https://i.imgur.com/u45VL8K.jpg","https://i.imgur.com/b9Z1f0H.png","https://cdn.discordapp.com/attachments/390888617536651265/441616070302760960/17493891_1009834615783993_1976996299869782016_n.jpg"]
+        literallyme = ["https://i.imgur.com/J56l01s.jpg","https://i.imgur.com/BE1Roa6.jpg","https://i.imgur.com/EOn4t0v.jpg","https://i.imgur.com/GOmd9sE.jpg","https://i.imgur.com/b4RCKxD.jpg","https://i.imgur.com/u45VL8K.jpg","https://i.imgur.com/b9Z1f0H.png","https://cdn.discordapp.com/attachments/390888617536651265/441616070302760960/17493891_1009834615783993_1976996299869782016_n.jpg","https://cdn.discordapp.com/attachments/367744546752430082/442416104611250177/20180505_195713.JPG"]
         embed = discord.Embed(title="Literally me", description="", colour=ctx.author.colour)
         embed.set_image(url=random.choice(literallyme))
         requested_by = "Requested by {}".format(ctx.author.name)
