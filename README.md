@@ -8,47 +8,38 @@
 **Prefixes:** +, ++, @mention
 
 
-#### Version 2.0 Commands:
-##### Fun Stuff:
-
- + cool
- + cat
- + dog
- + nibba
- + race
- + opencase
- + label
- + oof
- + dab
- + literallyme
- + mitochondria
-
-##### General:
-
- + publicmessage
- + clock
- + hltv
-
-##### Utilities:
-
- + ping
- + roll
- + choose
- + joined
- + ban
- + unban
- + kick
-
-##### Misc:
-
- + invite
- + discord
- + donate
- + patreon
+### Version 2.0 Commands:
+|Command  |Syntax|Result                                                       |
+|---------|------|-------------------------------------------------------------|
+| cool    |cool  |Tells you if something is cool                               |
+| cat     |cat   |Posts a random cat picture                                   |
+| dog     |dog   |Posts a random dog picture                                   |
+| nibba   |nibba |Reacts to your message with a B emoji. 5% chance for a red B.|     
+| race    |race  |Races an audi for a random time. Use the clock command to start races|
+| opencase|opencase <None/pin/trophy>|Opens a CS:GO case                       |
+| label   |label <text/mention>|Labels something with some rude langugage      |
+| oof     |oof   |Posts an oof emoji                                           |
+| dab     |dab <user mention>|Dabs on the haters. (Dabs on the mentioned user  |
+| literallyme|literallyme|Posts a relatable picture                            |
+| mitochondria|mitochondria|Tells isis that the mitochondria is the powerhouse of the cell|
+| publicmessage|publicmessage <None/*message>|Reads the public message or writes it|
+| clock   |clock |Posts an  animated clock and reacts to it when finished (12 sec)|
+| hltv    |hltv <top5/top15/matches/results>|Contains hltv subcommands (Top 15 list, Top 5, Next 5 matches, Previous 5 matches results)|
+| ping    |ping  |Pings the bot and returns the latency in ms                  |
+| roll    |roll <None/max roll>| Rolls the dice                                |
+| choose  |choose <choices separated by a space>| Chooses between the choices given|
+| joined  |joined <user mention>| Posts the mentioned user's joined date       |
+| ban     |ban <user> <reason> <delete message history>| Bans the mentioned user with the given reason  |
+| unban   |unban <user id> <reason>| Unbans the user id with the given reason  |
+| kick    |kick <user> <reason>| Kicks the mentioned user with the given reason|
+| invite  |invite| Posts the bot invite link                                   |
+| discord |discord| Posts the Panther Lounge discord link                      |
+| donate  |donate| Posts my donation links                                     |
+| patreon |patreon| Posts my patreon link                                      |
+ 
 
 ## It is recommended that you use the invite link and don't self host.
 ## [Add me to your discord here](https://discordapp.com/oauth2/authorize?&client_id=331818798015315970&scope=bot&permissions=8)
-
 
 # License
 
