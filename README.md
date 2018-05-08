@@ -29,7 +29,7 @@
 | roll    |roll (None/max roll)| Rolls the dice                                |
 | choose  |choose (choices separated by a space)| Chooses between the choices given|
 | joined  |joined (user mention)| Posts the mentioned user's joined date       |
-| ban     |ban (user) <reason) (delete message history)| Bans the mentioned user with the given reason  |
+| ban     |ban (user) (reason) (delete message history)| Bans the mentioned user with the given reason  |
 | unban   |unban (user id) (reason)| Unbans the user id with the given reason  |
 | kick    |kick (user) (reason)| Kicks the mentioned user with the given reason|
 | invite  |invite| Posts the bot invite link                                   |
