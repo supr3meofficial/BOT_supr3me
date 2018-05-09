@@ -58,37 +58,7 @@ async def on_message(message):
 				await message.add_reaction("👀")
 				sausagerole = discord.utils.get(guild.roles, id=401875611141931008)
 				await member.add_roles(sausagerole)
-
-			if message.content == "i play csgo":
-
-				rolecsgo = discord.utils.get(guild.roles, id=384112406663528448)
-				await member.add_roles(rolecsgo)
-				await channel.send(":white_check_mark: │ Your role has been added!")
-
-			if message.content == "i play pubg":
-
-				rolepubg = discord.utils.get(guild.roles, id=384112588113313793)
-				await member.add_roles(rolepubg)
-				await channel.send(":white_check_mark: │ Your role has been added!")
-
-			if message.content == "i play lol":
-
-				rolelol = discord.utils.get(guild.roles, id=384112673853276161)
-				await member.add_roles(rolelol)
-				await channel.send(":white_check_mark: │ Your role has been added!")
-
-			if message.content == "i play overwatch":
-
-				roleoverwatch = discord.utils.get(guild.roles, id=401359547127693313)
-				await member.add_roles(roleoverwatch)
-				await channel.send(":white_check_mark: │ Your role has been added!")
-
-			if message.content == "i play fortnite":
-
-				rolefortnite = discord.utils.get(guild.roles, id=422142121630498816)
-				await member.add_roles(rolefortnite)
-				await channel.send(":white_check_mark: │ Your role has been added!")
-
+				
 		msg = message.content
 		if "hmm" in msg:
 			await message.add_reaction("🤔")
@@ -106,23 +76,23 @@ async def on_member_update(before, after):
 
 	try:
 		if str(after.activity) == "Counter-Strike Global Offensive":
-			rolecsgo = discord.utils.get(guild.roles, id=384112406663528448)
+			rolecsgo = discord.utils.get(guild.roles, id=443866527817531412)
 			await after.add_roles(rolecsgo)
 
 		if str(after.activity) == "Fortnite":
-			rolefortnite = discord.utils.get(guild.roles, id=422142121630498816)
+			rolefortnite = discord.utils.get(guild.roles, id=443866683954692099)
 			await after.add_roles(rolefortnite)
 
 		if str(after.activity) == "Overwatch":
-			roleoverwatch = discord.utils.get(guild.roles, id=401359547127693313)
+			roleoverwatch = discord.utils.get(guild.roles, id=443866623196266505)
 			await after.add_roles(roleoverwatch)
 
 		if str(after.activity) == "League of Legends":
-			rolelol = discord.utils.get(guild.roles, id=384112673853276161)
+			rolelol = discord.utils.get(guild.roles, id=443866555852521483)
 			await after.add_roles(rolelol)
 
 		if str(after.activity) == "PLAYERUNKNOWN'S BATTLEGROUNDS":
-			rolepubg = discord.utils.get(guild.roles, id=384112588113313793)
+			rolepubg = discord.utils.get(guild.roles, id=443866654321934356)
 			await after.add_roles(rolepubg)
             
 	except (discord.Forbidden, discord.NotFound):
