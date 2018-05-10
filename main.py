@@ -192,18 +192,6 @@ async def on_error(event, *args, **kwargs):
 	print("[ERROR]",sys.exc_info())
 
 @bot.event
-async def on_member_join(member):
-# The Panther Lounge Automatic Role Assignment (MEMBER ROLE)
-
-	guild = bot.get_guild(id=331892870367805440)
-	role = discord.utils.get(guild.roles, id=372454832646258688)
-
-	try:
-		await member.add_roles(role)
-	except (discord.Forbidden, discord.NotFound):
-		pass
-
-@bot.event
 async def on_ready():
 	"""http://discordpy.readthedocs.io/en/rewrite/api.html#discord.on_ready"""
 
