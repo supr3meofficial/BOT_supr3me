@@ -18,7 +18,7 @@ class MiscCog:
     @commands.command()
     async def discord(self, ctx):
 
-        embed=discord.Embed(title="<:discord:434011189656158219> Discord", url="https://discord.gg/FMn43Qq", description="Please join our discord using the link above", color=0x80ff00)
+        embed=discord.Embed(title="<:discord:434011189656158219> Discord", url="https://discord.gg/KpNvPRa", description="Please join our discord using the link above", color=0x80ff00)
         await ctx.send(embed=embed)
 
     @commands.command()
