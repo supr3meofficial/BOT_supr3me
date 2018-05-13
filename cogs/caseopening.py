@@ -352,27 +352,32 @@ class CaseOpeningCog:
 
 			if random_drop <= 1: #Knives & Gloves - 1% Chance
 
+				tier = "knife_gloves"
 				stattrak = ""
 				case_drop = random.choice(case_items_knives_and_gloves)
 				case_drop_condition = case_items_condition[0]
 
 			elif random_drop <= 6: #Covert - 5% Chance
 
+				tier = "covert"
 				case_drop = random.choice(case_items_covert)
 				case_drop_condition =  random.choice(case_items_condition)
 
 			elif random_drop <= 17: #Classified - 11% Chance
 
+				tier = "classified"
 				case_drop = random.choice(case_items_classified)
 				case_drop_condition =  random.choice(case_items_condition)
 
 			elif random_drop <= 37: #Restricted - 20% Chance
 
+				tier = "restricted"
 				case_drop = random.choice(case_items_restricted)
 				case_drop_condition =  random.choice(case_items_condition)
 
 			else: #Mil-Spec - 63% Chance
 
+				tier = "milspec"
 				case_drop = random.choice(case_items_milspec)
 				case_drop_condition =  random.choice(case_items_condition)
 
@@ -394,12 +399,14 @@ class CaseOpeningCog:
 
 				elif rigged_argument.lower() == "trophy":
 
+					tier = "trophy"
 					case_drop = random.choice(major_medals)
 					case_drop_s = case_drop.split(";")
 					case_drop_message = "**<:csgocase:433064927645925386> You have received:**\n `{}".format(case_drop_s[0]) + " Trophy`"
 
 				elif rigged_argument.lower() == "pin":
 
+					tier = "pin"
 					case_drop = random.choice(csgo_pins)
 					case_drop_s = case_drop.split(";")
 					case_drop_message = "**<:csgocase:433064927645925386> You have received:**\n `{}".format(case_drop_s[0]) + "Pin`"
@@ -413,6 +420,7 @@ class CaseOpeningCog:
 				#Case Opening Rigged User Settings and Message:
 				if rigged_argument == "0":
 					
+					tier = "knife_gloves"
 					stattrak = ""
 					case_drop = random.choice(case_items_knives_and_gloves)
 					case_drop_s = case_drop.split(";")
@@ -421,6 +429,7 @@ class CaseOpeningCog:
 
 				elif rigged_argument == "1":
 
+					tier = "milspec"
 					case_drop = random.choice(case_items_milspec)
 					case_drop_s = case_drop.split(";")
 					opened_item = stattrak + "({}) {}".format(case_drop_condition, case_drop_s[0])
@@ -428,6 +437,7 @@ class CaseOpeningCog:
 
 				elif rigged_argument == "2":
 
+					tier = "restricted"
 					case_drop = random.choice(case_items_restricted)
 					case_drop_s = case_drop.split(";")
 					opened_item = stattrak + "({}) {}".format(case_drop_condition, case_drop_s[0])
@@ -435,6 +445,7 @@ class CaseOpeningCog:
 
 				elif rigged_argument == "3":
 
+					tier = "classified"
 					case_drop = random.choice(case_items_classified)
 					case_drop_s = case_drop.split(";")
 					opened_item = stattrak + "({}) {}".format(case_drop_condition, case_drop_s[0])
@@ -442,6 +453,7 @@ class CaseOpeningCog:
 
 				elif rigged_argument == "4":
 
+					tier = "covert"
 					case_drop = random.choice(case_items_covert)
 					case_drop_s = case_drop.split(";")
 					opened_item = stattrak + "({}) {}".format(case_drop_condition, case_drop_s[0])
@@ -449,12 +461,14 @@ class CaseOpeningCog:
 
 				elif rigged_argument.lower() == "trophy": #normal
 
+					tier = "trophy"
 					case_drop = random.choice(major_medals)
 					case_drop_s = case_drop.split(";")
 					case_drop_message = "**<:csgocase:433064927645925386> You have received:**\n `{}".format(case_drop_s[0]) + " Trophy`"
 
 				elif rigged_argument.lower() == "pin": #Normal
 
+					tier = "pin"
 					case_drop = random.choice(csgo_pins)
 					case_drop_s = case_drop.split(";")
 					case_drop_message = "**<:csgocase:433064927645925386> You have received:**\n `{}".format(case_drop_s[0]) + "Pin`"
@@ -463,7 +477,24 @@ class CaseOpeningCog:
 
 					case_drop_message = "**<:csgocase:433064927645925386> You have received:**\n `{}".format(opened_item)
 
-			embed = discord.Embed(title="", description=case_drop_message, colour=member.colour)
+			def tier_color():
+				
+				if tier == "milspec":
+					return discord.Colour(0x177cc7)
+				elif tier == "restricted":
+					return discord.Colour(0x872de0)
+				elif tier == "classified":
+					return discord.Colour(0xc917e0)
+				elif tier == "covert":
+					return discord.Colour(0xe7191b)
+				elif tier == "knife_gloves":
+					return discord.Colour(0xe7191b)
+				elif tier == "pin":
+					return discord.Colour(0xe0d029)
+				elif tier == "trophy":
+					return discord.Colour(0x71e4cb)
+
+			embed = discord.Embed(title="", description=case_drop_message, colour=tier_color())
 			embed.set_author(icon_url=member.avatar_url, name=str(member))
 			embed.set_image(url=case_drop_s[1])
 			msg = await ctx.send(case_opening_message_1)
