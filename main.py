@@ -191,6 +191,10 @@ async def on_error(event, *args, **kwargs):
 
 	print("[ERROR]",sys.exc_info())
 
+def connected_servers():
+
+	return str(len(bot.guilds) + "servers")
+
 @bot.event
 async def on_ready():
 	"""http://discordpy.readthedocs.io/en/rewrite/api.html#discord.on_ready"""
@@ -205,10 +209,10 @@ async def on_ready():
 		await bot.change_presence(status=discord.Status.online, activity=discord.Streaming(name="+help", url="http://twitch.tv/supr3meofficial"))
 		await asyncio.sleep(300)
 		print("\n[INFO] Changed bot's activity and status")
-		await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(name="v2.0 Release", type=3))
+		await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(name="v2.0.1", type=3))
 		await asyncio.sleep(300)
 		print("\n[INFO] Changed bot's activity and status")
-		await bot.change_presence(status=discord.Status.dnd, activity=discord.Activity(name="New: +hltv", type=2))
+		await bot.change_presence(status=discord.Status.dnd, activity=discord.Activity(name=connected_servers(), type=2))
 		await asyncio.sleep(300)
 		print("\n[INFO] Changed bot's activity and status")
 		await bot.change_presence(status=discord.Status.online, activity=discord.Game("@supr3meofficial"))
