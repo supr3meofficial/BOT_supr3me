@@ -193,7 +193,7 @@ async def on_error(event, *args, **kwargs):
 
 def connected_servers():
 
-	return str(str(len(bot.guilds)) + "servers")
+	return str(str(len(bot.guilds)) + " servers")
 
 @bot.event
 async def on_ready():
