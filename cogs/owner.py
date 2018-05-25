@@ -135,11 +135,12 @@ class OwnerCog:
 		embed.set_author(icon_url=self.bot.user.avatar_url, name=self.bot.user.name)
 
 		for guild in self.bot.guilds:
+
 			def get_invites():
 				invites_url = ""
 				invites = guild.invites()
 				for invite in invites:
-					invites_url += str(invite.url + "\n")
+					invites_url += str(invite) + "\n")
 				return invites_url
 					
 			embed.add_field(name=guild.name, value=get_invites(), inline=False)
