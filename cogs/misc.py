@@ -34,6 +34,12 @@ class MiscCog:
         await ctx.send(embed=embed)
         embed=discord.Embed(title="<:PayPal:437213765923241986> Paypal Link", url="https://www.paypal.me/supr3medonate", description="If you would like to help me, click the link above, thank you!", color=0x80ff00)
         await ctx.send(embed=embed)
+    
+    @commands.command()
+    async def github(self, ctx):
+
+        embed=discord.Embed(title="<:GitHub:449612764751593472> GitHub", url="https://github.com/supr3meofficial/BOT_supr3me", description="Click this link to see my insides", color=0x80ff00)
+        await ctx.send(embed=embed)
 
     @commands.command()
     @commands.guild_only()

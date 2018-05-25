@@ -115,6 +115,10 @@ def display_help(help_to_display = None):
 		
 		show_help = ':question:│ `Usage: +literallyme `\n:grey_exclamation:│ `Result: Posts a relatable picture`'
 
+	elif help_to_display == 'github':
+
+		show_help = ':question:│ `Usage: +github `\n:grey_exclamation:│ `Result: Posts the bot github link`'
+
 	else:
 
 		show_help = ':warning: **Command not found.**'

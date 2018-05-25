@@ -136,7 +136,9 @@ class OwnerCog:
 
 		for guild in self.bot.guilds:
 
-			embed.add_field(name='\uFEFF', value=guild.name, inline=False)
+			embed.add_field(name=guild.name, value="Invites:", inline=False)
+			for invite in guild.invites():
+				embed.add_field(name='-',value=invite, inline=False)
 
 		await ctx.send(embed=embed)
 
