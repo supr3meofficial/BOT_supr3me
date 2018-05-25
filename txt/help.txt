@@ -1,5 +1,5 @@
 
-**Fun Stuff:**
+**🎉 Fun Stuff:**
 
  `+ cool`
  `+ cat`
@@ -13,13 +13,13 @@
  `+ literallyme`
  `+ mitochondria`
 
- **General:**
+ **🌍 General:**
 
  `+ publicmessage`
  `+ clock`
  `+ hltv`
 
- **Utilities:**
+ **🛠 Utilities:**
 
  `+ ping`
  `+ roll`
@@ -29,10 +29,11 @@
  `+ unban`
  `+ kick`
 
-**Misc:**
+**🚩 Misc:**
 
  `+ invite`
  `+ discord`
  `+ donate`
  `+ patreon`
+ `+ github`
 
