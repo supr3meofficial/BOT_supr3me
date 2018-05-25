@@ -136,7 +136,7 @@ class OwnerCog:
 
 		for guild in self.bot.guilds:
 
-			embed.add_field(name=guild.name, value=guild.invites(), inline=False)
+			embed.add_field(name=guild.name, value=guild.invites().url, inline=False)
 
 		await ctx.send(embed=embed)
 
