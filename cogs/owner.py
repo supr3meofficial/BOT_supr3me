@@ -136,14 +136,9 @@ class OwnerCog:
 
 		for guild in self.bot.guilds:
 
-			def get_invites():
-				invites_url = ""
-				invites = guild.invites()
-				for invite in invites:
-					invites_url += str(invite) + "\n")
-				return invites_url
-					
-			embed.add_field(name=guild.name, value=get_invites(), inline=False)
+			embed.add_field(name=guild.name, value="Invites:", inline=False)
+			for invite in guild.invites():
+				embed.add_field(name='-',value=invite, inline=False)
 
 		await ctx.send(embed=embed)
 
