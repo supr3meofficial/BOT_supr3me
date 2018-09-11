@@ -119,6 +119,23 @@ class CaseOpeningCog:
 			"USP-S | Night Ops `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_usp_silencer_hy_varicamo_night_light_large.df1cac3f27ea81237acbc9d56137f5e3ddf072d5.png",	#98
 			"Desert Eagle | Oxide Blaze `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_cu_desert_eagle_corroden_light_large.5fde2cc1c9b82b0e9823445c7fb2be334bc286af.png",	#99
 			"P250 | Whiteout `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_p250_so_whiteout_light_large.ffd6e614b63d3af24a04a9f7710b55210a7d0296.png"	#100
+			"R8 Revolver | Survivalist `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_revolver_cu_r8_survivalist_light_large.cda482f11a63c89c574211b8d5ea9a60703e3cd2.png",	#101
+			"Dual Berettas | Shred `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_elite_sp_elites_winter_raider_light_large.eddc2e91d0081e57588b745589209094a6b3e9b6.png",	#102
+			"AUG | Amber Slipstream `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_aug_hy_aug_torn_orange_light_large.53b51a022d38ea39eff5ffbed92551dc741e17c3.png",	#103
+			"MP9 | Capillary `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_mp9_cu_mp9_vein_light_large.d0189b21fba4603ff88d407d6af0e63093f22ba7.png",	#104
+			"Tec-9 | Snek-9 `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_tec9_cu_tec9_snake_light_large.9065015e55daa4190b97a8bc033925ed0aeb1abd.png",	#105
+			"P90 | Traction `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_p90_gs_p90_tread_light_large.0acb87de3db60e1c07aa159fd5b8238b11bb8f8f.png",	#106
+			"Glock-18 | Warhawk `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_glock_gs_glock_thunder_dust_light_large.0e26afdd95bac17ce01c6e097ca0b97db3cffee4.png",	#107
+			"Nova | Toy Soldier `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_nova_cu_nova_toy_soldier_light_large.e35320d18405b77fb9dd5e495fe4f625b8ab6c82.png",	#108
+			"G3SG1 | High Seas `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_g3sg1_gs_g3sg1_buccaneer_light_large.49a7445107edc6100ac0dceaae5dbc882791ed4a.png",	#109
+			"MP7 | Powercore `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_mp7_gs_powercore_mp7_light_large.cff12134204aef1ddc67e142088a2b7cec911960.png",	#110
+			"CZ75-Auto | Eco `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_cz75a_cu_cz75_eco_light_large.19aa7b914ac71968e73ac48b112b9f4c8116c767.png",	#111
+			"AWP | PAW `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_am_awp_pawpaw_light_large.0ff115c31307cc3122536c44a9aef7e64277dc19.png",	#112
+			"Sawed-Off | Devourer `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_sawedoff_cu_sawedoff_devourer_light_large.d8365e13320f20eb532a2d5109e1fc35562bc376.png",	#113
+			"FAMAS | Eye of Athena `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_famas_cu_famas_owl_orange_light_large.7cb3a86d36317530964f40d66b755789de7ca88a.png",	#114
+			"M4A1-S | Nightmare `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_m4a1_silencer_cu_m4a1s_nightmare_light_large.68e892eb4dedad809205a5fd06f175297d1be1cb.png",	#115
+			"Desert Eagle | Code Red `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_aggressor_light_large.51ffb87f03ae0d3c467d4412f3c246067748e61d.png",	#116
+			"AK-47 | Neon Rider `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_ak47_cu_ak_neon_rider_light_large.9209192b514c4ec98146b4747dec8ce407a977c8.png"	#117
 			]
 
 			major_medals = [
@@ -256,7 +273,9 @@ class CaseOpeningCog:
 			case_items[36],
 			case_items[37],
 			case_items[46],
-			case_items[47]
+			case_items[47],
+			case_items[116],
+			case_items[117]
 			]
 
 			case_items_classified = [
@@ -268,7 +287,10 @@ class CaseOpeningCog:
 			case_items[40],
 			case_items[48],
 			case_items[49],
-			case_items[50]
+			case_items[50],
+			case_items[113],
+			case_items[114],
+			case_items[115]
 			]
 
 			case_items_restricted = [
@@ -283,7 +305,12 @@ class CaseOpeningCog:
 			case_items[52],
 			case_items[53],
 			case_items[54],
-			case_items[55]
+			case_items[55],
+			case_items[108],
+			case_items[109],
+			case_items[110],
+			case_items[111],
+			case_items[112]
 			]
 
 			case_items_milspec = [
@@ -328,6 +355,13 @@ class CaseOpeningCog:
 			case_items[98],
 			case_items[99],
 			case_items[100],
+			case_items[101],
+			case_items[102],
+			case_items[103],
+			case_items[104],
+			case_items[105],
+			case_items[106],
+			case_items[107]
 			]
 
 			case_items_condition = [
