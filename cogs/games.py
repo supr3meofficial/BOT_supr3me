@@ -122,6 +122,18 @@ class GamesCog:
 			embed = discord.Embed(title="", description=msg, colour=member.colour)
 			embed.set_author(icon_url=member.avatar_url, name=str(member))
 			await ctx.send(embed=embed)
+	
+	@commands.command()
+	@commands.guild_only()
+	async def onedeag(self, ctx):
+
+		member = ctx.author
+		members = ctx.guild.members
+		shot = random.choice(members)
+		deags = ["<:Deagle:490629020585558036>", "<:Deagle2:490629361964417048>", "<:Deagle3:490629362115149846>", "<:Deagle4:490629361851039776>"]
+		deag = random.choice(deags)
+		onedeag = deag + " You have popped a 1-Deag on **" + str(shot.name) + "**"
+		await ctx.send(onedeag)
 
 
 def setup(bot):
