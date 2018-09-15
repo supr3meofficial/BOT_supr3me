@@ -118,6 +118,10 @@ def display_help(help_to_display = None):
 	elif help_to_display == 'github':
 
 		show_help = ':question:│ `Usage: +github `\n:grey_exclamation:│ `Result: Posts the bot github link`'
+	
+	elif help_to_display == 'onedeag':
+
+		show_help = ':question:| `Usage: +onedeag`\n:grey_exclamation:| `Result: One deags a random guild member`'
 
 	else:
 
