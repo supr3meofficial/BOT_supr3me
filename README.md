@@ -21,6 +21,7 @@
 | oof     |oof   |Posts an oof emoji                                           |
 | dab     |dab (user mention)|Dabs on the haters. (Dabs on the mentioned user  |
 | literallyme|literallyme|Posts a relatable picture                            |
+| onedeag |onedeag | Pops a one-deag on a random guild member                  |
 | mitochondria|mitochondria|Tells isis that the mitochondria is the powerhouse of the cell|
 | publicmessage|publicmessage (None/*message)|Reads the public message or writes it|
 | clock   |clock |Posts an  animated clock and reacts to it when finished (12 sec)|
