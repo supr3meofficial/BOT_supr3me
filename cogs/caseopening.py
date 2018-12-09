@@ -293,8 +293,7 @@ class CaseOpeningCog:
 			case_items[47],
 			case_items[116],
 			case_items[117],
-			case_items[133],
-			case_items[134]
+			case_items[133]
 			]
 
 			case_items_classified = [
