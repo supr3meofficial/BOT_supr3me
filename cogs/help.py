@@ -105,7 +105,7 @@ def display_help(help_to_display = None):
 	
 	elif help_to_display == 'dab':
 		
-		show_help = ':question:│ `Usage: +dab <anything> `\n:grey_exlamation:│ `Result: Dabs on the harers`'
+		show_help = ':question:│ `Usage: +dab <anything> `\n:grey_exclamation:│ `Result: Dabs on the harers`'
 		
 	elif help_to_display == 'mitochondria':
 		
