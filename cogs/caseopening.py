@@ -152,7 +152,29 @@ class CaseOpeningCog:
 			"Desert Eagle | Mecha Industries `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_mecha_light_large.e08c1fd8709f6b368956c41c68b17c15ff635635.png", #131
 			"MP5-SD | Phosphor `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_mp5sd_gs_mp5_festival_drip_light_large.c71af0a784e5ecd6e5d5f2f71961be155e283cde.png", #132
 			"AWP | Neo-Noir `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_neonoir_light_large.c5dd57f8555d13c41f08024f27a9314074b698af.png", #133
-			"AK-47 | Asiimov `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_ak47_cu_ak47_asiimov_light_large.665fc3b83c8046398787a57d2ef7a9d938244820.png" #134
+			"AK-47 | Asiimov `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_ak47_cu_ak47_asiimov_light_large.665fc3b83c8046398787a57d2ef7a9d938244820.png", #134
+			"MP7 | Mischief `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_mp7_cu_mp7_racketeer_light_large.ba5b3641b7b309cdd16d9f54fc2bc2331e738929.png", #135
+			"FAMAS | Crypsis `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_famas_sp_famas_ghost_insects_light_large.727c7db3f6df4aae8b692f6966dba460acafb07f.png", #136
+			"Galil AR | Akoben `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_galilar_sp_galil_akoben_light_large.35a9e7a0fa943ac20d1b145d36bf3d4ccf33cc84.png", #137
+			"P250 | Verdigris `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_p250_aq_p250_verdigris_light_large.379d19af038211ca3bf7d20c4c75726e9be36856.png", #138
+			"MAC-10 | Whitefish `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_mac10_gs_mac10_fish_bait_light_large.ce4f7a282959460f3ce477bd54910bf6bdf0c6ec.png", #139
+			"P90 | Off World `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_p90_cu_p90_offworld_light_large.45f1db5b8b435574f46fffe77960d8ef29519eca.png", #140
+			"AK-47 | Uncharted `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_ak47_cu_ak47_aztec_light_large.368d90ba7bc01aa56489792a8962df5343238c5c.png", #141
+			"Tec-9 | Bamboozle `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_tec9_cu_tec9_bamboo_light_large.24d8986c41f344d8c1e9167a935c7b904757f85e.png", #142
+			"UMP-45 | Moonrise `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_ump45_aa_ump45_moonrise_sunset_light_large.63cf279a66d95757f4fefe498b89480966887083.png", #143
+			"MP5-SD | Gauss `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_mp5sd_gs_mp5sd_astromatic_light_large.d7acba118f13e4b7b0d9146dddd32cf71da9210d.png", #144
+			"Desert Eagle | Light Rail `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_exo_light_large.8bdc93f1b45efba187748065deff967eef8f2f2d.png", #145
+			"AWP | Atheris `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_viper_light_large.2de75408a7c595312d58203f53c73a3a18faa4a3.png", #146
+			"R8 Revolver | Skull Crusher `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_revolver_cu_revolver_oppressor_light_large.59414a184bcf3310d43528701292ba4f68ba55a0.png", #147
+			"AUG | Momentum `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_aug_cu_aug_momentum_light_large.1f36037cec707a957785625f04b3740bb5286d16.png", #148
+			"XM1014 | Incinegator `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_xm1014_cu_xm1014_incinerator_light_large.7649f64bbfea49d6f0d951320e0bdd98d6bee088.png", #149
+			"Five-SeveN | Angry Mob `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_fiveseven_cu_five_seven_angry_light_large.54986e86178e0462d34fe78b6b726292813541f5.png", #150
+			"M4A4 | Emperor `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_m4a1_gs_m4a4_emperor_light_large.61be48559b0a5d57e04108f876f5cf755ec8acc8.png", #151
+			"Navaja Knife | Fade `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_knife_gypsy_jackknife_aa_fade_light_large.230f96c68e3dfd7936d76b44d7093cdc109b0d45.png", #152
+			"Stilleto Knife | Rust Coat `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_knife_stiletto_aq_steel_knife_light_large.f714d7f3d6c1e0381dbfcd8f221f7edbe8bd2f28.png", #153
+			"Talon Knife | Blue Steel `;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_knife_widowmaker_aq_blued_light_large.5f9fddb9d8623257d62f544027dcf305a087bab1.png", #154
+			"Ursus Knife | Tiger Tooth`;https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_knife_ursus_an_tiger_orange_light_large.34be676a93f4d6f275e0690d64a3c601e1612dc9.png" #155 
+
 			]
 
 			major_medals = [
@@ -280,7 +302,11 @@ class CaseOpeningCog:
 			case_items[84],
 			case_items[85],
 			case_items[86],
-			case_items[87]
+			case_items[87],
+			case_items[152],
+			case_items[153],
+			case_items[154],
+			case_items[155]
 			]
 
 			case_items_covert = [
@@ -292,7 +318,9 @@ class CaseOpeningCog:
 			case_items[47],
 			case_items[116],
 			case_items[117],
-			case_items[133]
+			case_items[133],
+			case_items[150],
+			case_items[151]
 			]
 
 			case_items_classified = [
@@ -310,7 +338,10 @@ class CaseOpeningCog:
 			case_items[115],
 			case_items[130],
 			case_items[131],
-			case_items[132]
+			case_items[132],
+			case_items[147],
+			case_items[148],
+			case_items[149]
 			]
 
 			case_items_restricted = [
@@ -335,7 +366,13 @@ class CaseOpeningCog:
 			case_items[126],
 			case_items[127],
 			case_items[128],
-			case_items[129]
+			case_items[129],
+			case_items[141],
+			case_items[142],
+			case_items[143],
+			case_items[144],
+			case_items[145],
+			case_items[146]
 			]
 
 			case_items_milspec = [
@@ -394,8 +431,14 @@ class CaseOpeningCog:
 			case_items[121],
 			case_items[122],
 			case_items[123],
-			case_items[124]
-
+			case_items[124],
+			case_items[135],
+			case_items[136],
+			case_items[137],
+			case_items[138],
+			case_items[139],
+			case_items[140],
+			case_items[141]
 			]
 
 			case_items_condition = [
