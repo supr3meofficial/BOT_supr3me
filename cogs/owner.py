@@ -83,36 +83,6 @@ class OwnerCog:
 		await ctx.send(embed=embed)
 			
 
-	@commands.command(name='top_role', aliases=['toprole'])
-	@commands.is_owner()
-	@commands.guild_only()
-	async def show_toprole(self, ctx, *, member: discord.Member=None):
-		"""Simple command which shows the members Top Role."""
-
-		if member is None:
-			member = ctx.author
-
-		await ctx.send(f'The top role for `{member.display_name}` is `{member.top_role.name}`')
-
-	@commands.command(name='perms', aliases=['perms_for', 'permissions'])
-	@commands.is_owner()
-	@commands.guild_only()
-	async def check_permissions(self, ctx, *, member: discord.Member=None):
-		"""A simple command which checks a members Guild Permissions.
-		If member is not provided, the author will be checked."""
-
-		if not member:
-			member = ctx.author
-
-		perms = '\n'.join(perm for perm, value in member.guild_permissions if value)
-
-		embed = discord.Embed(title='Permissions for:', description=ctx.guild.name, colour=member.colour)
-		embed.set_author(icon_url=member.avatar_url, name=str(member))
-
-		embed.add_field(name='\uFEFF', value=perms)
-
-		await ctx.send(content=None, embed=embed)
-
 	@commands.command(name='spam', aliases=['say'])
 	@commands.is_owner()
 	@commands.guild_only()
@@ -124,14 +94,14 @@ class OwnerCog:
 	@commands.group()
 	@commands.is_owner()
 	@commands.guild_only()
-	async def info(self, ctx):
+	async def adm(self, ctx):
 		if ctx.invoked_subcommand is None:
 			pass
 	
-	@info.command()
+	@adm.command()
 	async def servers(self, ctx):
 
-		embed = discord.Embed(title='Connected Servers:', description='', colour=0xbf0000)
+		embed = discord.Embed(title='**Connected Servers:**', description='', colour=0xbf0000)
 		embed.set_author(icon_url=self.bot.user.avatar_url, name=self.bot.user.name)
 
 		for guild in self.bot.guilds:
@@ -140,27 +110,36 @@ class OwnerCog:
 
 		await ctx.send(embed=embed)
 
-	@info.command()
+	@adm.command()
 	async def uptime(self, ctx):
 
 		def get_bot_uptime():
 
 			return get_human_readable_uptime_diff(self.bot.uptime)
 
-		embed = discord.Embed(title='Uptime:', description=get_bot_uptime(), colour=0xbf0000)
+		embed = discord.Embed(title='**Uptime:**', description=get_bot_uptime(), colour=0xbf0000)
 		embed.set_author(icon_url=self.bot.user.avatar_url, name=self.bot.user.name)
 		await ctx.send(embed=embed)
 	
-	@info.command()
+	@adm.command()
 	async def channel(self, ctx):
+
+		if ctx.channel.is_nsfw():
+			nsfw = "NSFW"
+		else:
+			nsfw = "SFW"
 
 		embed = discord.Embed(title='', description='', colour=0xbf0000)
 		embed.set_author(icon_url=self.bot.user.avatar_url, name=self.bot.user.name)
 		embed.add_field(name='**Channel Name:**', value=ctx.channel.name, inline=False)
 		embed.add_field(name='**Channel ID:**', value=ctx.channel.id, inline=False)
+		embed.add_field(name='**Channel Position:**', value=ctx.channel.position, inline=False)
+		embed.add_field(name='**Channel Members:**', value=len(ctx.channel.members), inline=False)
+		embed.add_field(name='**Channel NSFW:**', value=nsfw, inline=False)
+		embed.add_field(name='**Channel Creation Time:**', value=ctx.channel.created_at, inline=False)
 		await ctx.send(embed=embed)
 
-	@info.command()
+	@adm.command()
 	async def member(self, ctx, member: discord.Member=None):
 
 		if member is None:
@@ -173,7 +152,26 @@ class OwnerCog:
 		embed.add_field(name='**Member ID:**', value=member.id, inline=False)
 		embed.add_field(name='**Member Status:**', value=str(member.status), inline=False)
 		embed.add_field(name='**Member Activity:**', value=str(member.activity), inline=False)
+		embed.add_field(name='**Member Top Role:**', value=str(member.top_role.name), inline=False)
+		embed.add_field(name='**Member Colour:**', value=str(member.colour), inline=False)
+		embed.add_field(name='**Member Avatar:**', value=str(member.avatar_url), inline=False)
 		await ctx.send(embed=embed)
+
+	@adm.command(name='perms', aliases=['perms_for', 'permissions'])
+	async def check_permissions(self, ctx, *, member: discord.Member=None):
+
+		if not member:
+			member = ctx.author
+
+		perms = '\n'.join(perm for perm, value in member.guild_permissions if value)
+
+		embed = discord.Embed(title='Permissions in:', description=ctx.guild.name, colour=member.colour)
+		embed.set_author(icon_url=member.avatar_url, name=str(member))
+
+		embed.add_field(name='\uFEFF', value=perms)
+
+		await ctx.send(content=None, embed=embed)	
+
 
 	# GUILD OWNER/STAFF COMMANDS:
 	
