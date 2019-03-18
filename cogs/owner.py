@@ -82,14 +82,9 @@ class OwnerCog:
 		embed.set_author(icon_url=self.bot.user.avatar_url, name=self.bot.user.name)
 		await ctx.send(embed=embed)
 			
+	#MOVE THIS
 
-	@commands.command(name='spam', aliases=['say'])
-	@commands.is_owner()
-	@commands.guild_only()
-	async def spam(self, ctx, amount, content : str):
 
-		for spammer in range(int(amount)):
-			await ctx.send(content)
 
 	@commands.group()
 	@commands.is_owner()
@@ -98,6 +93,48 @@ class OwnerCog:
 		if ctx.invoked_subcommand is None:
 			pass
 	
+	@adm.command()
+	async def join(self, ctx):
+
+		member = ctx.author
+		vc = member.voice.channel
+		vc_connected = "Connected to `" + vc.name + "`"
+		embed = discord.Embed(title='**Voice Channel**', description=vc_connected, colour=0x00c100)
+		embed.set_author(icon_url=self.bot.user.avatar_url, name=self.bot.user.name)
+		#error_embed = discord.Embed(title='**Voice Channel**', description="Failed to connect to a voice channel", colour=0xea0000)
+		#error_embed.set_author(icon_url=self.bot.user.avatar_url, name=self.bot.user.name)
+		
+		await vc.connect()
+		await ctx.send(embed=embed)
+
+	@adm.command()
+	async def leave(self, ctx):
+
+		vc = ctx.voice_client
+		vc_disconnected = "Disconnected from voice channel"
+		embed = discord.Embed(title='**Voice Channel**', description=vc_disconnected, colour=0x00c100)
+		embed.set_author(icon_url=self.bot.user.avatar_url, name=self.bot.user.name)
+		
+		await vc.disconnect(force=True)
+		await ctx.send(embed=embed)
+
+	@adm.command(name='spam', aliases=['say'])
+	async def spam(self, ctx, amount, content : str):
+
+		for spammer in range(int(amount)):
+			await ctx.send(content)
+
+	@adm.command()
+	async def info(self, ctx):
+
+		embed = discord.Embed(title='**Client Info**', description='', colour=0xbf0000)
+		embed.set_author(icon_url=self.bot.user.avatar_url, name=self.bot.user.name)
+		embed.add_field(name='Users Connected:', value=len(self.bot.users), inline=True)
+		embed.add_field(name='Guilds Connected:', value=len(self.bot.guilds), inline=True)
+		embed.add_field(name='Current Latency:', value=self.bot.latency, inline=True)
+
+		await ctx.send(embed=embed)
+
 	@adm.command()
 	async def servers(self, ctx):
 
