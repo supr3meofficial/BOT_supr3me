@@ -97,7 +97,8 @@ class OwnerCog:
 	async def join(self, ctx):
 
 		if not discord.opus.is_loaded():
-    		discord.opus.load_opus('libopus.so')
+			discord.opus.load_opus('libopus.so')
+			
 		member = ctx.author
 		vc = member.voice.channel
 		vc_connected = "Connected to `" + vc.name + "`"
