@@ -11,31 +11,16 @@ class GeneralCommandsCog:
 	@commands.command()
 	@commands.guild_only()
 	async def joined(self, ctx, *, member: discord.Member):
-		"""Says when a member joined."""
 
+		date = str(member.joined_at).split(".")[0]
 		requested_by = "Requested by {}".format(ctx.author.name)
-		msg = '**Join date:** `{}`'.format(member.joined_at)
 
-		embed = discord.Embed(title="", description=msg, colour=ctx.author.colour)
+		embed = discord.Embed(title="", description="", colour=ctx.author.colour)
 		embed.set_author(icon_url=member.avatar_url, name=str(member))
+		embed.set_thumbnail(url="https://twemoji.maxcdn.com/2/72x72/1f552.png")
+		embed.add_field(name="Join Date:", value=date, inline=False)
 		embed.set_footer(text=requested_by)
 		
-		await ctx.send(embed=embed)
-
-	@commands.command(name='cool')
-	async def cool_bot(self, ctx):
-		"""Is it cool?"""
-
-		member = ctx.author
-		coolness = random.randint(1,2)
-
-		if coolness == 1:
-			msg = ':game_die: **Very Cool!**'
-		elif coolness == 2:
-			msg = ':game_die: **Not Cool!**'
-		
-		embed = discord.Embed(title="", description=msg, colour=member.colour)
-		embed.set_author(icon_url=member.avatar_url, name=str(member))
 		await ctx.send(embed=embed)
 
 	@commands.command()
@@ -45,49 +30,53 @@ class GeneralCommandsCog:
 		member = ctx.author
 		requested_by = "Requested by {}".format(ctx.author.name)
 		latency = '{0}'.format(round(self.bot.latency, 1))
-		desc = "<:signal:439905517280690176> **Latency:** {} ms".format(latency)
+		desc = "{} ms".format(latency)
 
-		embed = discord.Embed(title="", description=desc, colour=member.colour)
+		embed = discord.Embed(title="", description="", colour=member.colour)
 		embed.set_author(icon_url=self.bot.user.avatar_url, name=str(self.bot.user.name))
+		embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/439905517280690176.png")
+		embed.add_field(name="Latency:", value=desc, inline=False)
 		embed.set_footer(text=requested_by)
 		await ctx.send(embed=embed)
 
 	@commands.command()
 	@commands.guild_only()
-	async def publicmessage(self, ctx, *phrase):
+	async def spotify(self, ctx, member: discord.Member):
 
-		member = ctx.author
+		requested_by = "Requested by {}".format(ctx.author.name)
+		listener = "{} is listening to:".format(member.name)
+		spotify = member.activity
+		duration = str(spotify.duration).split(".")[0]
+		artists = str(spotify.artist).replace(";",",")
 
-		if "read" in phrase:
-			with open('txt/secret.txt','r') as read_secret:
-				msg = read_secret.read()
-				return await ctx.send(msg)
-				
-		else:
-			if "@here" in phrase:
-				msg = ':warning: **Unauthorised message.**'
-				return await ctx.send(msg)
-
-			elif "@everyone" in phrase:
-				msg = ':warning: **Unauthorised message.**'
-
-			else:
-				with open('txt/secret.txt','w') as write_secret:
-					for word in phrase:
-						write_secret.write(word)
-						write_secret.write(' ')
-
-				msg = ':secret: **Message has been saved.** Do +publicmessage read to read it'
-
-		embed = discord.Embed(title="", description=msg, colour=member.colour)
-		embed.set_author(icon_url=member.avatar_url, name=str(member))
+		embed = discord.Embed(title="", description="", colour=spotify.colour)
+		embed.set_author(icon_url="https://images-eu.ssl-images-amazon.com/images/I/51rttY7a%2B9L.png", name=listener)
+		embed.set_thumbnail(url=spotify.album_cover_url)
+		embed.add_field(name="Title:", value=spotify.title, inline=False)
+		embed.add_field(name="Artists:", value=artists, inline=False)
+		embed.add_field(name="Album:", value=spotify.album, inline=False)
+		embed.add_field(name="Duration:", value=duration, inline=False)
+		embed.set_footer(text=requested_by)
 		await ctx.send(embed=embed)
+
 
 	@commands.command()
 	@commands.guild_only()
 	async def oof(self, ctx):
 
 		await ctx.send("<:oof:439920274029412352>")
+
+	@commands.command(name='createinvite',aliases=['createinv','create_inv','create_invite'])
+	@commands.guild_only()
+	async def createinvite(self, ctx):
+
+		requested_by = "Requested by {}".format(ctx.author.name)
+		channel = ctx.channel
+		inv = await channel.create_invite(reason="Created via command")
+		embed = discord.Embed(title="Invite Created", description=inv.url, color=ctx.author.colour)
+		embed.set_thumbnail(url="https://twemoji.maxcdn.com/2/72x72/1f517.png")
+		embed.set_footer(text=requested_by)
+		await ctx.send(embed=embed)
 
 def setup(bot):
 	bot.add_cog(GeneralCommandsCog(bot))
