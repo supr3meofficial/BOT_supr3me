@@ -18,13 +18,7 @@ class MiscCog:
     @commands.command()
     async def discord(self, ctx):
 
-        embed=discord.Embed(title="<:discord:434011189656158219> Discord", url="https://discord.gg/KpNvPRa", description="Please join our discord using the link above", color=0x80ff00)
-        await ctx.send(embed=embed)
-
-    @commands.command()
-    async def patreon(self, ctx):
-
-        embed=discord.Embed(title="<:Patreon:437227448384618527> Patreon", url="https://www.patreon.com/supr3me", description="If you would like to become a patron, click the link above, thank you!", color=0x80ff00)
+        embed=discord.Embed(title="<:discord:434011189656158219> Discord", url="https://discord.gg/Awt7krm", description="Please join our discord using the link above", color=0x80ff00)
         await ctx.send(embed=embed)
 
     @commands.command()
@@ -106,10 +100,11 @@ class MiscCog:
 
     @commands.command()
     @commands.guild_only()
-    async def dab(self, ctx, member):
+    async def dab(self, ctx, member = "everyone"):
 
         msg = "<:Dab:443893837388316673> {} just dabbed on {}".format(ctx.author.name, member)
         embed = discord.Embed(title="<:Dab:443893837388316673> Dabbing on the haters", description=msg, colour=ctx.author.colour)
+        embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/443893837388316673.png")
         await ctx.send(embed=embed)
 		
 
