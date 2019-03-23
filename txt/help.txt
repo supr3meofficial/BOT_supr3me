@@ -1,13 +1,11 @@
 
 **🎉 Fun Stuff:**
 
- `+ cool`
  `+ cat`
  `+ dog`
  `+ nibba`
  `+ race`
  `+ opencase`
- `+ label`
  `+ oof`
  `+ dab`
  `+ literallyme`
@@ -15,13 +13,13 @@
  `+ onedeag`
 
  **🌍 General:**
-
- `+ publicmessage`
+ `+ spotify`
  `+ clock`
  `+ hltv`
 
  **🛠 Utilities:**
-
+ 
+ `+ createinvite`
  `+ ping`
  `+ roll`
  `+ choose`
