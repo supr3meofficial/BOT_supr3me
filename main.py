@@ -219,4 +219,4 @@ async def on_ready():
 		await asyncio.sleep(300)
 		print("\n[INFO] Changed bot's activity and status")
 
-bot.run('NDM3MzEwNTk2MTA3NDY4ODEw.De3vXg.h9CRL9epl_8kC2eLVVRCVD3RDIE', bot=True, reconnect=True)
+bot.run('os.environ['BOT_TOKEN']', bot=True, reconnect=True)
