@@ -27,14 +27,6 @@ def display_help(help_to_display = None):
 
 		show_help = ':question:│ `Usage: +joined <user>`\n:grey_exclamation:│ `Result: Tells you when a user joined the discord`'
 
-	elif help_to_display == 'cool':
-
-		show_help = ':question:│ `Usage: +cool <anything>`\n:grey_exclamation:│ `Result: Tells you if the user is cool`'
-
-	elif help_to_display == 'publicmessage':
-
-		show_help = ':question:│ `Usage: +publicmessage <read/phrase>`\n:grey_exclamation:│ `Result: Writes/reads an interserver public message`'
-
 	elif help_to_display == 'cat':
 
 		show_help = ':question:│ `Usage: +cat`\n:grey_exclamation:│ `Result: Posts a random cat picture`'
@@ -59,10 +51,6 @@ def display_help(help_to_display = None):
 
 		show_help = ':question:│ `Usage: +donate`\n:grey_exclamation:│ `Result: Posts the donation links to supr3me`'
 
-	elif help_to_display == 'patreon':
-
-		show_help = ':question:│ `Usage: +patreon`\n:grey_exclamation:│ `Result: Posts the patreon link of supr3me`'
-
 	elif help_to_display == 'clock':
 
 		show_help = ':question:│ `Usage: +clock`\n:grey_exclamation:│ `Result: Sets up an animated clock`'
@@ -74,10 +62,6 @@ def display_help(help_to_display = None):
 	elif help_to_display == 'nibba':
 
 		show_help = ':question:│ `Usage: +nibba`\n:grey_exclamation:│ `Result: Minigame that tests your luck in getting the red B`'
-
-	elif help_to_display == 'label':
-
-		show_help = ':question:│ `Usage: +label <anything>`\n:grey_exclamation:│ `Result: Labels anything as either gay, a trap, or a thot`'
 
 	elif help_to_display == 'hltv':
 
@@ -122,6 +106,14 @@ def display_help(help_to_display = None):
 	elif help_to_display == 'onedeag':
 
 		show_help = ':question:| `Usage: +onedeag`\n:grey_exclamation:| `Result: One deags a random guild member`'
+
+	elif help_to_display == 'spotify':
+
+		show_help = ':question:| `Usage: +spotify <member>`\n:grey_exclamation:| `Result: Displays the current song the user is listening to`'
+	
+	elif help_to_display == 'createinvite':
+
+		show_help = ':question:| `Usage: +createinvite`\n:grey_exclamation:| `Result: Creates an invite for the channel the command is ran`'
 
 	else:
 
