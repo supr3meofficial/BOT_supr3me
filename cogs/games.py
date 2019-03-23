@@ -53,22 +53,16 @@ class GamesCog:
 
 	@commands.command()
 	@commands.guild_only()
-	async def roll(self, ctx, maximum_roll = 100, rigged = False):
+	async def roll(self, ctx, maximum_roll = 100):
 
 		member = ctx.author
-		result = ":game_die: **Rolled:** `{}`".format(str(random.randint(0,maximum_roll)))
+		rolled = random.randint(0,maximum_roll)
 
-		if rigged:
-			result = ":game_die: **Rolled:** `{}`".format(maximum_roll)
-			
-		else:
-			if maximum_roll <= 2:
-				result = ":warning: You can't roll a number smaller than 2"
-			elif maximum_roll >= 100000000000000000000:
-				result = ":warning: Rolls shouldn't be higher than 100000000000000000000"
-		
-		embed = discord.Embed(title="", description=result, colour=member.colour)
+		embed = discord.Embed(title="", description="", colour=member.colour)
 		embed.set_author(icon_url=member.avatar_url, name=str(member))
+		embed.set_thumbnail(url="https://twemoji.maxcdn.com/2/72x72/1f3b2.png")
+		embed.add_field(name="Rolled:", value=rolled, inline=True)
+		embed.add_field(name="Roll Cap:", value=maximum_roll, inline=True)
 		await ctx.send(embed=embed)
 
 
@@ -78,10 +72,12 @@ class GamesCog:
 	async def choose(self, ctx, *choices : str):
 
 		member = ctx.author
-		choice_msg = ":game_die: **Chose:** {}".format(random.choice(choices))
+		choice = random.choice(choices)
 
-		embed = discord.Embed(title="", description=choice_msg, colour=member.colour)
+		embed = discord.Embed(title="", description="", colour=member.colour)
 		embed.set_author(icon_url=member.avatar_url, name=str(member))
+		embed.set_thumbnail(url="https://twemoji.maxcdn.com/2/72x72/1f3b2.png")
+		embed.add_field(name="Chose:", value=choice, inline=True)
 		await ctx.send(embed=embed)
 
 	@commands.command()
@@ -101,27 +97,6 @@ class GamesCog:
 	async def race(self, ctx):
 
 		await track_animation(ctx.author.mention, ctx)
-
-	@commands.command()
-	@commands.guild_only()
-	async def label(self, ctx, subject="You"):
-
-		member = ctx.author
-
-		if "@everyone" in subject:
-			await ctx.send(":warning: You cannot do that!")
-
-		elif "@here" in subject:
-			await ctx.send(":warning: You cannot do that!")
-
-		else:
-			label_list = ["a <:l_trap:437614608618881024>","a <:l_thot:437614528881229833>","<:l_gay:437614582849208322>"]
-			label = random.choice(label_list)
-
-			msg = "{} has been labeled as {}".format(subject, label)
-			embed = discord.Embed(title="", description=msg, colour=member.colour)
-			embed.set_author(icon_url=member.avatar_url, name=str(member))
-			await ctx.send(embed=embed)
 	
 	@commands.command()
 	@commands.guild_only()
@@ -130,10 +105,42 @@ class GamesCog:
 		member = ctx.author
 		members = ctx.guild.members
 		shot = random.choice(members)
-		deags = ["<:Deagle:490629020585558036>", "<:Deagle2:490629361964417048>", "<:Deagle3:490629362115149846>", "<:Deagle4:490629361851039776>"]
+		shot = shot.name
+
+		deags = ["https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_aggressor_light_large.51ffb87f03ae0d3c467d4412f3c246067748e61d.png", 
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_am_scales_bravo_light_large.6cba46695e74a8bee932ea90cea24e146cbef5e7.png", 
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_mecha_light_large.e08c1fd8709f6b368956c41c68b17c15ff635635.png", 
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_aq_deserteagle_kumichodragon_light_large.19874e9a20cfac49efbe1f1557b995e453633ffe.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_cu_deagle_aureus_light_large.7fa76057cb05f2cab829be448f120ae540715d0e.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_am_ddpatdense_peacock_light_large.a486db3160bcdcf6bc5a1d8179c450b02f620151.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_aa_vertigo_light_large.85a16e4bfb8b1cc6393ca5d0c6d3a1e6e6023323.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_exo_light_large.8bdc93f1b45efba187748065deff967eef8f2f2d.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_aq_desert_eagle_constable_light_large.fb2f2673dd3997a21bff9129e0d2e294c03095e8.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_aq_deagle_naga_light_large.b410ad835b1894a448676ae0590586298af2cb33.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_hy_webs_darker_light_large.7b9cb19bac52ebe7c49e3abdfb0c400ea252fef8.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_aq_engraved_deagle_light_large.804a1a01a29bf80673b739f3eb220272a6838193.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_am_seastorm_shojo_light_large.7df4fe386dac18ae2a8c3e50df7dfb9165dece83.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_am_seastorm_blood_light_large.1e92a7e19fde014e5a70832a93b440e0c036d596.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_aq_handcannon_light_large.e6e87ceb2337a423d225dc177342af3df4069585.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_aq_pilot_deagle_light_large.60b0e755ef14311a82f5f35928ad18dbb6ae2a86.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_aa_flames_light_large.dd140c3b359c16ccd8e918ca6ad0b2628151fe1c.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_cu_desert_eagle_corroden_light_large.5fde2cc1c9b82b0e9823445c7fb2be334bc286af.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_aq_deagle_corinthian_light_large.1a694892a1953a131775451d0542508b4b3d9e77.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_am_bronze_sparkle_light_large.42dc1d2bae9e586f75d6425f94a195014891533b.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_am_crystallized_dark_light_large.2d7d753a893ec3f0a470af9690aa64dcecd7146f.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_hy_varicamo_urban_light_large.a9791d0046206f88085f2d0850ec577c6f535a47.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_so_night_light_large.64e315553578f3c8bd08c96622fc2c34d5a789ba.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_am_seastorm_light_large.aef21efecda37237d24debe3f409f42954dadddd.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_hy_ddpat_urb_light_large.06af0cb0e08490f1fba17acd1b9c98978745c213.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_hy_mottled_sand_light_large.615be084d4bc9db8c98451f13351cae1fa0ec69c.png",
+				"https://csgostash.com/img/weapons/Desert_Eagle.png"]
 		deag = random.choice(deags)
-		onedeag = deag + " You have popped a 1-Deag on **" + str(shot.name) + "**"
-		await ctx.send(onedeag)
+
+		embed = discord.Embed(title="", description="", colour=member.colour)
+		embed.set_author(icon_url=member.avatar_url, name=str(member))
+		embed.set_thumbnail(url=deag)
+		embed.add_field(name="You have popped a one deag on:", value=shot, inline=True)
+		await ctx.send(embed=embed)
 
 
 def setup(bot):
