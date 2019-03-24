@@ -10,40 +10,66 @@ async def track_animation(trackracer, ctx):
 	anim3 = "<:raceflags:433061672387739650> :wavy_dash::wavy_dash::wavy_dash: <:Audi:433020256521551893>"
 	anim4 = "<:raceflags:433061672387739650> :wavy_dash::wavy_dash: <:Audi:433020256521551893>"
 	anim5 = "<:raceflags:433061672387739650> :wavy_dash: <:Audi:433020256521551893>"
-	anim6 = "<:raceflags:433061672387739650> <:Audi:433020256521551893> <:blacktrophy:433062084528308225>"
+	anim6 = "<:raceflags:433061672387739650> <:Audi:433020256521551893>"
 
 	def tracksleeper():
 
 		return random.randint(1,10)
 		
-
+	member = ctx.author
+	membercar = "{}'s car".format(member.name)
 	totaltracksleep = 0
 
-	trackmsg = await ctx.send(anim1)
+	embed = discord.Embed(title="", description=anim1, colour=member.colour)
+	embed.set_author(icon_url=member.avatar_url, name=membercar)
+	trackmsg = await ctx.send(embed=embed)
 	tracksleep = tracksleeper()
 	await asyncio.sleep(tracksleep)
 	totaltracksleep += tracksleep
-	await trackmsg.edit(content=anim2)
+
+	embed = discord.Embed(title="", description=anim2, colour=member.colour)
+	embed.set_author(icon_url=member.avatar_url, name=membercar)
+	await trackmsg.edit(embed=embed)
 	tracksleep = tracksleeper()
 	await asyncio.sleep(tracksleep)
 	totaltracksleep += tracksleep
-	await trackmsg.edit(content=anim3)
-	tracksleep = tracksleeper()
-	await asyncio.sleep(tracksleep) 
-	totaltracksleep += tracksleep
-	await trackmsg.edit(content=anim4)
-	tracksleep = tracksleeper()
-	await asyncio.sleep(tracksleep)
-	totaltracksleep += tracksleep
-	await trackmsg.edit(content=anim5)
+
+	embed = discord.Embed(title="", description=anim3, colour=member.colour)
+	embed.set_author(icon_url=member.avatar_url, name=membercar)
+	await trackmsg.edit(embed=embed)
 	tracksleep = tracksleeper()
 	await asyncio.sleep(tracksleep)
 	totaltracksleep += tracksleep
-	await trackmsg.edit(content=anim6)
+
+	embed = discord.Embed(title="", description=anim4, colour=member.colour)
+	embed.set_author(icon_url=member.avatar_url, name=membercar)
+	await trackmsg.edit(embed=embed)
+	tracksleep = tracksleeper()
+	await asyncio.sleep(tracksleep)
+	totaltracksleep += tracksleep
+
+	embed = discord.Embed(title="", description=anim5, colour=member.colour)
+	embed.set_author(icon_url=member.avatar_url, name=membercar)
+	await trackmsg.edit(embed=embed)
+	tracksleep = tracksleeper()
+	await asyncio.sleep(tracksleep)
+	totaltracksleep += tracksleep
+
+	embed = discord.Embed(title="", description=anim6, colour=member.colour)
+	embed.set_author(icon_url=member.avatar_url, name=membercar)
+	await trackmsg.edit(embed=embed)
+	tracksleep = tracksleeper()
+	await asyncio.sleep(tracksleep)
+	totaltracksleep += tracksleep
+
 	await asyncio.sleep(1)
 
-	anim7 = ":stopwatch: **{}'s Time: **{} seconds".format(trackracer, totaltracksleep) 
-	await ctx.send(anim7)
+	laptime = "{} seconds".format(totaltracksleep)
+	embed = discord.Embed(title="", description="", colour=member.colour)
+	embed.set_author(icon_url=member.avatar_url, name=membercar)
+	embed.set_thumbnail(url="https://twemoji.maxcdn.com/2/72x72/23f1.png")
+	embed.add_field(name="Lap Time:", value=laptime, inline=False)
+	await trackmsg.edit(embed=embed)
 
 
 class GamesCog:
@@ -100,11 +126,12 @@ class GamesCog:
 	
 	@commands.command()
 	@commands.guild_only()
-	async def onedeag(self, ctx):
+	async def onedeag(self, ctx, shot: discord.Member = None):
 
 		member = ctx.author
 		members = ctx.guild.members
-		shot = random.choice(members)
+		if shot == None:
+			shot = random.choice(members)
 		shot = shot.name
 
 		deags = ["https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_aggressor_light_large.51ffb87f03ae0d3c467d4412f3c246067748e61d.png", 
