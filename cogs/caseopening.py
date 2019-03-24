@@ -183,7 +183,7 @@ class CaseOpeningCog:
 			"DreamHack Winter 2013 Finalist;https://vignette.wikia.nocookie.net/cswikia/images/c/c4/Dreamhack_2013_finalist_large.png/revision/latest/scale-to-width-down/480?cb=20140911151513",
 			"DreamHack Winter 2013 Champion;https://vignette.wikia.nocookie.net/cswikia/images/b/b4/Dreamhack_2013_champion_large.png/revision/latest/scale-to-width-down/480?cb=20140911151456",
 			"ESL One: Cologne 2014 Quarterfinalist;https://vignette.wikia.nocookie.net/cswikia/images/8/8b/Cologne_trophy_quarterfinalist_large.png/revision/latest/scale-to-width-down/480?cb=20140911151435",
-			"ESL One: Cologe 2014 Semifinalist;https://vignette.wikia.nocookie.net/cswikia/images/e/e8/Cologne_trophy_semifinalist_large.png/revision/latest?cb=20140911151450",
+			"ESL One: Cologne 2014 Semifinalist;https://vignette.wikia.nocookie.net/cswikia/images/e/e8/Cologne_trophy_semifinalist_large.png/revision/latest?cb=20140911151450",
 			"ESL One: Cologne 2014 Finalist;https://vignette.wikia.nocookie.net/cswikia/images/2/26/Cologne_trophy_finalist_large.png/revision/latest?cb=20140911151429",
 			"ESL One: Cologne 2014 Champion;https://vignette.wikia.nocookie.net/cswikia/images/b/ba/Cologne_trophy_champion_large.png/revision/latest?cb=20140911151422",
 			"ESL One: Katowice 2014 Quarterfinalist;https://vignette.wikia.nocookie.net/cswikia/images/e/e8/Katowice_2014_quarterfinalist_large.png/revision/latest?cb=20140911151546",
