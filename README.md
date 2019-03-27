@@ -16,11 +16,10 @@
 | nibba   |nibba |Reacts to your message with a B emoji. 5% chance for a red B.|     
 | race    |race  |Races an audi for a random time. Use the clock command to start races|
 | opencase|opencase (None/pin/trophy)|Opens a CS:GO case                       |
-| label   |label (text/mention)|Labels something with some rude langugage      |
 | oof     |oof   |Posts an oof emoji                                           |
 | dab     |dab (user mention)|Dabs on the haters. (Dabs on the mentioned user  |
 | literallyme|literallyme|Posts a relatable picture                            |
-| onedeag |onedeag | Pops a one-deag on a random guild member                  |
+| onedeag |onedeag (user mention) | Pops a one-deag on a random/specific guild member                  |
 | mitochondria|mitochondria|Tells isis that the mitochondria is the powerhouse of the cell|
 | clock   |clock |Posts an  animated clock and reacts to it when finished (12 sec)|
 | hltv    |hltv (top5/top15/matches/results)|Contains hltv subcommands (Top 15 list, Top 5, Next 5 matches, Previous 5 matches results)|
