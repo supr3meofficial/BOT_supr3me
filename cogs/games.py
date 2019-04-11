@@ -15,7 +15,7 @@ async def track_animation(trackracer, ctx):
 	def tracksleeper():
 
 		return random.randint(1,10)
-		
+
 	member = ctx.author
 	membercar = "{}'s car".format(member.name)
 	totaltracksleep = 0
@@ -123,7 +123,25 @@ class GamesCog:
 	async def race(self, ctx):
 
 		await track_animation(ctx.author.mention, ctx)
-	
+
+	@commands.command()
+	@commands.guild_only()
+	async def nani(self, ctx, nanid: discord.Member = None):
+
+		member = ctx.message.author
+		members = ctx.guild.members
+
+		if nanid == None:
+			nanid = random.choice(members)
+
+		embed = discord.Embed(title="", description="Nani!?")
+		embed.set_author(icon_url=nanid.avatar_url, name=nanid.name)
+		await ctx.send(embed=embed)
+
+		embed = discord.Embed(title="", description="Omae wa mou shindeiru!")
+		embed.set_author(icon_url=member.avatar_url, name=member.name)
+		await ctx.send(embed=embed)
+
 	@commands.command()
 	@commands.guild_only()
 	async def onedeag(self, ctx, shot: discord.Member = None):
@@ -134,9 +152,9 @@ class GamesCog:
 			shot = random.choice(members)
 		shot = shot.name
 
-		deags = ["https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_aggressor_light_large.51ffb87f03ae0d3c467d4412f3c246067748e61d.png", 
-				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_am_scales_bravo_light_large.6cba46695e74a8bee932ea90cea24e146cbef5e7.png", 
-				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_mecha_light_large.e08c1fd8709f6b368956c41c68b17c15ff635635.png", 
+		deags = ["https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_aggressor_light_large.51ffb87f03ae0d3c467d4412f3c246067748e61d.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_am_scales_bravo_light_large.6cba46695e74a8bee932ea90cea24e146cbef5e7.png",
+				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_gs_deagle_mecha_light_large.e08c1fd8709f6b368956c41c68b17c15ff635635.png",
 				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_aq_deserteagle_kumichodragon_light_large.19874e9a20cfac49efbe1f1557b995e453633ffe.png",
 				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_cu_deagle_aureus_light_large.7fa76057cb05f2cab829be448f120ae540715d0e.png",
 				"https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_deagle_am_ddpatdense_peacock_light_large.a486db3160bcdcf6bc5a1d8179c450b02f620151.png",
